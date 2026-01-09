@@ -16,7 +16,7 @@ app.get('/health', (c) => c.json({ status: 'ok' }))
 // app.route('/api/contacts', contactRoutes)
 
 // Start server
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3004
 console.log(`Server running on http://localhost:${port}`)
 
 export default {

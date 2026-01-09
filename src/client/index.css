@@ -1,3 +1,90 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* IBM Plex Sans & Mono from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Bollman & Roets Color Palette */
+    --midnight-navy: 220 40% 13%;
+    --stone-gray: 220 10% 40%;
+    --warm-white: 40 20% 98%;
+    --brass-gold: 43 74% 49%;
+    --technical-blue: 210 80% 50%;
+
+    /* Semantic mappings */
+    --background: 40 20% 98%;
+    --foreground: 220 40% 13%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 40% 13%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 40% 13%;
+    --primary: 220 40% 13%;
+    --primary-foreground: 40 20% 98%;
+    --secondary: 220 10% 90%;
+    --secondary-foreground: 220 40% 13%;
+    --muted: 220 10% 94%;
+    --muted-foreground: 220 10% 40%;
+    --accent: 43 74% 49%;
+    --accent-foreground: 220 40% 13%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 10% 85%;
+    --input: 220 10% 85%;
+    --ring: 43 74% 49%;
+    --radius: 0.25rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  /* Skip to main content link */
+  .skip-link {
+    @apply absolute -top-10 left-4 z-50 bg-primary text-primary-foreground px-4 py-2 rounded;
+    transition: top 0.2s;
+  }
+
+  .skip-link:focus {
+    @apply top-4;
+  }
+}
+
+@layer components {
+  /* Blueprint-style decorative lines */
+  .blueprint-line {
+    @apply relative;
+  }
+
+  .blueprint-line::before {
+    content: '';
+    @apply absolute left-0 right-0 h-px bg-border;
+    top: 50%;
+  }
+
+  /* Container with max-width */
+  .container-site {
+    @apply mx-auto px-4 sm:px-6 lg:px-8;
+    max-width: 1280px;
+  }
+}
