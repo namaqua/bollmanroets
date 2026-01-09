@@ -14,7 +14,7 @@ interface SolutionCardProps {
   title: string
   problem: string
   solution: string
-  scope: string
+  scope?: string
 }
 
 function SolutionCard({ title, problem, solution, scope }: SolutionCardProps) {
@@ -33,9 +33,11 @@ function SolutionCard({ title, problem, solution, scope }: SolutionCardProps) {
           <Body className="text-sm">{solution}</Body>
         </div>
       </CardContent>
-      <CardFooter className="border-t pt-4">
-        <Small className="text-muted-foreground">{scope}</Small>
-      </CardFooter>
+      {scope && (
+        <CardFooter className="border-t pt-4">
+          <Small className="text-muted-foreground">{scope}</Small>
+        </CardFooter>
+      )}
     </Card>
   )
 }
