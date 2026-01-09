@@ -156,9 +156,11 @@ export function MobileNav() {
               <Link
                 to={getLocalizedPath('/')}
                 onClick={closeMenu}
-                className="text-lg font-semibold"
+                className="flex items-center gap-1 text-lg font-semibold"
               >
-                Bollman & Roets
+                <span className="text-midnight-navy">Bollman</span>
+                <span className="text-brass-gold">&</span>
+                <span className="text-midnight-navy">Roets</span>
               </Link>
               <Button
                 variant="ghost"
