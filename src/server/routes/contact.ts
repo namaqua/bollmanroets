@@ -69,7 +69,9 @@ type ContactFormData = z.infer<typeof contactSchema>
 
 // Submit to Web Leads API
 async function submitToWebLeads(
-  data: ContactFormData
+  data: ContactFormData,
+  clientIp: string,
+  userAgent: string
 ): Promise<{ success: boolean; id?: string; error?: string }> {
   const apiKey = process.env.WEBLEADS_API_KEY
 
@@ -132,6 +134,8 @@ async function submitToWebLeads(
         'Content-Type': 'application/json',
         'X-API-Key': apiKey,
         'Origin': 'https://br.luluwaldhund.de',
+        'X-Forwarded-For': clientIp,
+        'User-Agent': userAgent,
       },
       body: JSON.stringify(payload),
     })
@@ -211,6 +215,12 @@ contact.post(
 
     const data = c.req.valid('json') as ContactFormData
 
+    // Get client IP and User-Agent for forwarding to Web Leads API
+    const clientIp = c.req.header('x-forwarded-for')?.split(',')[0]?.trim()
+      || c.req.header('x-real-ip')
+      || 'unknown'
+    const userAgent = c.req.header('user-agent') || ''
+
     // Log submission locally
     console.log('Contact form submission:', {
       timestamp: new Date().toISOString(),
@@ -221,10 +231,11 @@ contact.post(
       interest: interestLabels[data.interest]?.en || data.interest,
       messageLength: data.message.length,
       hasTracking: !!(data.sessionId || data.utmSource),
+      clientIp,
     })
 
     // Submit to Web Leads API (graceful degradation - don't fail user request if API fails)
-    const webLeadsResult = await submitToWebLeads(data)
+    const webLeadsResult = await submitToWebLeads(data, clientIp, userAgent)
     console.log('Web Leads API result:', {
       success: webLeadsResult.success,
       id: webLeadsResult.id,
