@@ -8,7 +8,7 @@ import { ArrowRightIcon, CheckIcon } from '@/components/ui/icons'
 import { useI18n } from '@/client/lib/i18n'
 import { SEO, BreadcrumbSchema, WebPageSchema } from '@/components/seo'
 
-const SITE_URL = 'https://bollman-roets.de'
+const SITE_URL = 'https://br.luluwaldhund.de'
 
 export function AboutPage() {
   const { t, getLocalizedPath, locale } = useI18n()

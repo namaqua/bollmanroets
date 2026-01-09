@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async'
 import { useI18n } from '@/client/lib/i18n'
 import { useLocation } from 'react-router-dom'
 
-const SITE_URL = 'https://bollman-roets.de'
+const SITE_URL = 'https://br.luluwaldhund.de'
 
 interface BreadcrumbItem {
   name: string

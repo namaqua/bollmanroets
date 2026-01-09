@@ -8,6 +8,17 @@ const rateLimitStore = new Map<string, { count: number; resetAt: number }>()
 const RATE_LIMIT_WINDOW = 60 * 60 * 1000 // 1 hour
 const RATE_LIMIT_MAX = 5 // 5 requests per hour
 
+// Web Leads API configuration
+const WEBLEADS_API_URL = 'https://dogfood.luluwaldhund.de/api/public/web-leads'
+
+// Map frontend interest values to Web Leads API values
+const interestValueMap: Record<string, string> = {
+  discoveryDay: 'discovery_day',
+  pilot: 'pilot_project',
+  partnership: 'partnership_request',
+  general: 'general_question',
+}
+
 // Contact form schema
 const contactSchema = z.object({
   name: z.string().min(1, 'Name is required').max(100),
@@ -20,6 +31,57 @@ const contactSchema = z.object({
 })
 
 type ContactFormData = z.infer<typeof contactSchema>
+
+// Submit to Web Leads API
+async function submitToWebLeads(
+  data: ContactFormData,
+  sourceUrl: string
+): Promise<{ success: boolean; id?: string; error?: string }> {
+  const apiKey = process.env.WEBLEADS_API_KEY
+
+  if (!apiKey) {
+    console.error('WEBLEADS_API_KEY not configured')
+    return { success: false, error: 'API key not configured' }
+  }
+
+  const payload: Record<string, unknown> = {
+    name: data.name,
+    company: data.company,
+    email: data.email,
+    interest: interestValueMap[data.interest] || 'general_question',
+    message: data.message,
+    privacyConsent: data.privacy,
+    sourceUrl,
+  }
+
+  if (data.phone) {
+    payload.phone = data.phone
+  }
+
+  try {
+    const response = await fetch(WEBLEADS_API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-API-Key': apiKey,
+        'Origin': 'https://br.luluwaldhund.de',
+      },
+      body: JSON.stringify(payload),
+    })
+
+    const result = await response.json()
+
+    if (!response.ok) {
+      console.error('Web Leads API error:', { status: response.status, result })
+      return { success: false, error: result.error || 'Submission failed' }
+    }
+
+    return { success: true, id: result.id }
+  } catch (error) {
+    console.error('Web Leads API request failed:', error)
+    return { success: false, error: 'Network error' }
+  }
+}
 
 // Rate limit middleware
 function rateLimit(ip: string): { allowed: boolean; remaining: number } {
@@ -81,8 +143,9 @@ contact.post(
     }
 
     const data = c.req.valid('json') as ContactFormData
+    const sourceUrl = c.req.header('referer') || 'https://br.luluwaldhund.de/kontakt'
 
-    // Log submission (in production, store to database)
+    // Log submission locally
     console.log('Contact form submission:', {
       timestamp: new Date().toISOString(),
       name: data.name,
@@ -93,14 +156,13 @@ contact.post(
       messageLength: data.message.length,
     })
 
-    // TODO: Send email notification
-    // await sendEmailNotification(data)
-
-    // TODO: Send auto-responder to user
-    // await sendAutoResponder(data.email, data.name)
-
-    // TODO: Store submission in database for GDPR compliance
-    // await storeSubmission(data, ip)
+    // Submit to Web Leads API (graceful degradation - don't fail user request if API fails)
+    const webLeadsResult = await submitToWebLeads(data, sourceUrl)
+    console.log('Web Leads API result:', {
+      success: webLeadsResult.success,
+      id: webLeadsResult.id,
+      error: webLeadsResult.error,
+    })
 
     return c.json({
       success: true,

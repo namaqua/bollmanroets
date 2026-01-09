@@ -22,7 +22,7 @@ import { useI18n } from '@/client/lib/i18n'
 import { cn } from '@/lib/utils'
 import { SEO, BreadcrumbSchema, WebPageSchema } from '@/components/seo'
 
-const SITE_URL = 'https://bollman-roets.de'
+const SITE_URL = 'https://br.luluwaldhund.de'
 
 const createContactSchema = (t: ReturnType<typeof useI18n>['t']) =>
   z.object({

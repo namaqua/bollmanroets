@@ -10,7 +10,7 @@ interface SEOProps {
   noindex?: boolean
 }
 
-const SITE_URL = 'https://bollman-roets.de'
+const SITE_URL = 'https://br.luluwaldhund.de'
 const DEFAULT_IMAGE = '/og-image.jpg'
 
 export function SEO({
