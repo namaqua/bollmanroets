@@ -4,6 +4,13 @@ import { en } from './en/common'
 export type Locale = 'de' | 'en'
 
 export interface Translations {
+  seo: {
+    defaultDescription: string
+    home: { title: string; description: string }
+    about: { title: string; description: string }
+    solutions: { title: string; description: string }
+    contact: { title: string; description: string }
+  }
   nav: {
     home: string
     about: string

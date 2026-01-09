@@ -1,4 +1,23 @@
 export const en = {
+  seo: {
+    defaultDescription: 'Bespoke software solutions for German SMEs. CRM, CPQ, HR systems in 6-12 weeks. 30+ years of enterprise experience.',
+    home: {
+      title: 'Bespoke Software for German SMEs',
+      description: 'Custom software solutions for German SMEs. CRM, CPQ, HR systems in 6-12 weeks. Full ownership, no license fees.',
+    },
+    about: {
+      title: 'About Us',
+      description: 'Bollman ⚡ Roets: 30+ years of enterprise experience. AI-accelerated development of custom software for German SMEs.',
+    },
+    solutions: {
+      title: 'Solutions',
+      description: 'Custom CRM, CPQ, and HR systems for businesses. Bespoke software instead of expensive enterprise solutions.',
+    },
+    contact: {
+      title: 'Contact',
+      description: 'Contact Bollman ⚡ Roets for your software project. Discovery Day for €2,500 including requirements analysis and implementation plan.',
+    },
+  },
   nav: {
     home: 'Home',
     about: 'About',
@@ -43,7 +62,7 @@ export const en = {
   footer: {
     imprint: 'Imprint',
     privacy: 'Privacy',
-    copyright: '© 2025 Bollman & Roets. All rights reserved.',
+    copyright: '© 2025 Bollman ⚡ Roets. All rights reserved.',
   },
   language: {
     switch: 'Switch language',
@@ -60,7 +79,7 @@ export const en = {
     strapline: 'Bespoke Software. German Precision.',
     heroText: 'We build custom software solutions for German SMEs. Fast, precise, fairly priced.',
     valueProps: {
-      title: 'Why Bollman & Roets',
+      title: 'Why Bollman ⚡ Roets',
       yourCode: {
         title: 'Your Code',
         description: 'Full ownership of your software. No vendor lock-in, no recurring license fees.',

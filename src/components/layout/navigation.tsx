@@ -158,7 +158,7 @@ export function MobileNav() {
                 onClick={closeMenu}
                 className="text-lg font-semibold"
               >
-                Bollman & Roets
+                Bollman ⚡ Roets
               </Link>
               <Button
                 variant="ghost"

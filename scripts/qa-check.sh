@@ -80,15 +80,23 @@ echo "Stage 4: API Check"
 echo "------------------------------------------"
 
 # Check if server is running
-if curl -s http://localhost:3000/health > /dev/null 2>&1; then
+if curl -s http://localhost:3004/health > /dev/null 2>&1; then
   pass "Server responding"
-  
+
   # Health endpoint
-  HEALTH=$(curl -s http://localhost:3000/health)
+  HEALTH=$(curl -s http://localhost:3004/health)
   if echo "$HEALTH" | grep -q "ok"; then
     pass "Health endpoint"
   else
     fail "Health endpoint not returning ok"
+  fi
+
+  # Contact API endpoint
+  CONTACT_HEALTH=$(curl -s http://localhost:3004/api/contact/health)
+  if echo "$CONTACT_HEALTH" | grep -q "ok"; then
+    pass "Contact API endpoint"
+  else
+    fail "Contact API endpoint not responding"
   fi
 else
   warn "Server not running, skipping API checks"

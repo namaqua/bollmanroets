@@ -1,16 +1,24 @@
 # Project Configuration
 
 ## Project
-- **Name:** 
-- **Slug:** 
-- **Description:** 
-- **Repository:** 
-- **Type:** [web-app | api | marketplace | engine]
+- **Name:** Bollman & Roets
+- **Slug:** bollman_roets
+- **Description:** Corporate website for bespoke software consultancy
+- **Repository:**
+- **Type:** web-app
 
 ## Database
 - **Provider:** PostgreSQL
 - **Connection:** DATABASE_URL
-- **Prefix:** 
+- **Prefix:**
+
+## Ports (Project #4)
+| Service | Standard | This Project |
+|---------|----------|--------------|
+| Backend (Hono) | 3000 | 3004 |
+| Frontend (Vite) | 5173 | 5177 |
+| PostgreSQL | 5432 | 5432 (shared, db: `bollman_roets`) |
+| Drizzle Studio | 4983 | 4987 |
 
 ## Domain Model
 | Entity | Table | Description | Status |

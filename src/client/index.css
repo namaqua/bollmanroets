@@ -2,8 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-/* IBM Plex Sans & Mono from Google Fonts */
+/* IBM Plex Sans & Mono from Google Fonts - with display=swap for better performance */
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+/* Prefers reduced motion - respect user preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 
 @layer base {
   :root {
@@ -55,6 +67,23 @@
     line-height: 1.6;
   }
 
+  /* Enhanced focus styles for accessibility */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /* Ensure links have visible underlines for accessibility */
+  a:not([class]) {
+    text-decoration-skip-ink: auto;
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    :root {
+      --border: 220 10% 50%;
+    }
+  }
+
   code, pre, .font-mono {
     font-family: 'IBM Plex Mono', monospace;
   }
@@ -86,5 +115,22 @@
   .container-site {
     @apply mx-auto px-4 sm:px-6 lg:px-8;
     max-width: 1280px;
+  }
+}
+
+@layer utilities {
+  /* Ensure minimum touch target size (44x44px) for accessibility */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  /* Screen reader only - improved */
+  .sr-only-focusable:not(:focus):not(:focus-within) {
+    @apply sr-only;
+  }
+
+  /* Text balance for better readability */
+  .text-balance {
+    text-wrap: balance;
   }
 }

@@ -6,12 +6,21 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Divider } from '@/components/ui/divider'
 import { ArrowRightIcon, CheckIcon } from '@/components/ui/icons'
 import { useI18n } from '@/client/lib/i18n'
+import { SEO, WebPageSchema } from '@/components/seo'
 
 export function HomePage() {
   const { t, getLocalizedPath } = useI18n()
 
   return (
     <>
+      <SEO
+        title={t.seo.home.title}
+        description={t.seo.home.description}
+      />
+      <WebPageSchema
+        title={t.seo.home.title}
+        description={t.seo.home.description}
+      />
       {/* Hero Section */}
       <Section className="pt-20 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none">

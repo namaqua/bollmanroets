@@ -4,12 +4,19 @@ import { Button } from '@/components/ui/button'
 import { Container } from '@/components/ui/container'
 import { H1, Body } from '@/components/ui/typography'
 import { ArrowRightIcon } from '@/components/ui/icons'
+import { SEO } from '@/components/seo'
 
 export function NotFoundPage() {
   const t = useTranslations()
   const { getLocalizedPath } = useI18n()
 
   return (
+    <>
+      <SEO
+        title={t.errors.pageNotFound}
+        description={t.errors.pageNotFoundMessage}
+        noindex
+      />
     <div className="flex min-h-[60vh] items-center py-16 lg:py-24">
       <Container>
         <div className="mx-auto max-w-lg text-center">
@@ -29,5 +36,6 @@ export function NotFoundPage() {
         </div>
       </Container>
     </div>
+    </>
   )
 }

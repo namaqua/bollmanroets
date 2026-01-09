@@ -1,10 +1,8 @@
 // Browser smoke test
 // Usage: bun run scripts/browser-check.ts
 
-import { $ } from 'bun'
-
-const BASE_URL = process.env.BASE_URL || 'http://localhost:5173'
-const API_URL = process.env.API_URL || 'http://localhost:3000'
+const BASE_URL = process.env.BASE_URL || 'http://localhost:5177'
+const API_URL = process.env.API_URL || 'http://localhost:3004'
 
 interface TestResult {
   name: string
@@ -63,11 +61,74 @@ await test('Client: Page loads', async () => {
 await test('Client: Assets load', async () => {
   const res = await fetch(BASE_URL)
   const html = await res.text()
-  
+
   // Check for script tags
   if (!html.includes('<script')) {
     throw new Error('No script tags found')
   }
+})
+
+// ------------------------------------------
+// Page Route Tests
+// ------------------------------------------
+
+await test('Client: German homepage loads', async () => {
+  const res = await fetch(BASE_URL)
+  if (!res.ok) throw new Error(`Status ${res.status}`)
+})
+
+await test('Client: English homepage loads', async () => {
+  const res = await fetch(`${BASE_URL}/en`)
+  if (!res.ok) throw new Error(`Status ${res.status}`)
+})
+
+await test('Client: About page loads', async () => {
+  const res = await fetch(`${BASE_URL}/uber-uns`)
+  if (!res.ok) throw new Error(`Status ${res.status}`)
+})
+
+await test('Client: Solutions page loads', async () => {
+  const res = await fetch(`${BASE_URL}/losungen`)
+  if (!res.ok) throw new Error(`Status ${res.status}`)
+})
+
+await test('Client: Contact page loads', async () => {
+  const res = await fetch(`${BASE_URL}/kontakt`)
+  if (!res.ok) throw new Error(`Status ${res.status}`)
+})
+
+// ------------------------------------------
+// API Contact Tests
+// ------------------------------------------
+
+await test('API: Contact endpoint exists', async () => {
+  const res = await fetch(`${API_URL}/api/contact/health`)
+  if (!res.ok) throw new Error(`Status ${res.status}`)
+  const data = await res.json()
+  if (data.status !== 'ok') throw new Error('Contact health not ok')
+})
+
+await test('API: Contact validation works', async () => {
+  const res = await fetch(`${API_URL}/api/contact`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name: '' }),
+  })
+  if (res.status !== 400) throw new Error(`Expected 400, got ${res.status}`)
+})
+
+// ------------------------------------------
+// SEO Tests
+// ------------------------------------------
+
+await test('SEO: Sitemap exists', async () => {
+  const res = await fetch(`${BASE_URL}/sitemap.xml`)
+  if (!res.ok) throw new Error(`Status ${res.status}`)
+})
+
+await test('SEO: Robots.txt exists', async () => {
+  const res = await fetch(`${BASE_URL}/robots.txt`)
+  if (!res.ok) throw new Error(`Status ${res.status}`)
 })
 
 // ------------------------------------------

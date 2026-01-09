@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import { I18nProvider } from '@/client/lib/i18n'
 import { PageLayout } from '@/components/layout/page-layout'
+import { OrganizationSchema, LocalBusinessSchema } from '@/components/seo'
 import {
   HomePage,
   AboutPage,
@@ -12,6 +14,10 @@ import {
 function AppRoutes() {
   return (
     <PageLayout>
+      {/* Global structured data */}
+      <OrganizationSchema />
+      <LocalBusinessSchema />
+
       <Routes>
         {/* German routes (default) */}
         <Route path="/" element={<HomePage />} />
@@ -34,10 +40,12 @@ function AppRoutes() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <I18nProvider>
-        <AppRoutes />
-      </I18nProvider>
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <I18nProvider>
+          <AppRoutes />
+        </I18nProvider>
+      </BrowserRouter>
+    </HelmetProvider>
   )
 }

@@ -19,6 +19,10 @@ Orchestrate sub-agents to build features end-to-end. Alfred breaks down work, de
 | `forms-agent` | claude-sonnet-4-20250514 | React Hook Form, Zod schemas |
 | `review-agent` | claude-sonnet-4-20250514 | Multi-perspective code review |
 | `qa-agent` | claude-sonnet-4-20250514 | Testing, validation, browser checks |
+| `animation-agent` | claude-sonnet-4-20250514 | Framer Motion, micro-interactions, transitions |
+| `design-system-agent` | claude-sonnet-4-20250514 | Tokens, themes, shadcn/ui, visual consistency |
+| `a11y-agent` | claude-sonnet-4-20250514 | WCAG compliance, keyboard nav, screen readers |
+| `responsive-agent` | claude-sonnet-4-20250514 | Mobile-first, breakpoints, adaptive layouts |
 
 ## Workflow
 
@@ -57,6 +61,26 @@ Follow build sequence from architecture blueprint:
 ```
 db-agent → api-agent → forms-agent → ui-agent
 ```
+
+### Phase 1.5: Design Enhancement (Optional)
+For user-facing features requiring polish:
+```
+ui-agent output
+    ↓
+design-system-agent  → Ensure token/theme consistency
+    ↓
+animation-agent      → Add micro-interactions, transitions
+    ↓
+responsive-agent     → Verify mobile-first, breakpoints
+    ↓
+a11y-agent          → WCAG compliance check
+```
+
+**Invoke design agents when:**
+- Feature is user-facing (not internal admin)
+- Design polish is explicitly requested
+- Component needs animations or transitions
+- Mobile experience is critical
 
 ### Phase 2: Review
 Multi-perspective code review before QA:
@@ -102,9 +126,11 @@ CONSTRAINTS: {POC limits, patterns to follow}
 
 ## Commands
 - `build {feature}` — Full feature implementation (research → architecture → implement → review → QA)
+- `build {feature} --polished` — Full build with design enhancement phase
 - `research {feature}` — Run research phase only
 - `architect {feature}` — Run architecture phase only (requires research)
 - `implement {feature}` — Run implementation only (requires architecture)
+- `polish {feature}` — Run design enhancement phase (design-system → animation → responsive → a11y)
 - `review {feature}` — Run multi-perspective code review (requires implementation)
 - `qa {feature}` — Run QA validation only (requires review pass)
 - `status` — Show current build progress

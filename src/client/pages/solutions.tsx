@@ -6,6 +6,9 @@ import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/componen
 import { Divider } from '@/components/ui/divider'
 import { ArrowRightIcon } from '@/components/ui/icons'
 import { useI18n } from '@/client/lib/i18n'
+import { SEO, BreadcrumbSchema, WebPageSchema, ServiceSchema } from '@/components/seo'
+
+const SITE_URL = 'https://bollman-roets.de'
 
 interface SolutionCardProps {
   title: string
@@ -38,7 +41,7 @@ function SolutionCard({ title, problem, solution, scope }: SolutionCardProps) {
 }
 
 export function SolutionsPage() {
-  const { t, getLocalizedPath } = useI18n()
+  const { t, getLocalizedPath, locale } = useI18n()
 
   const solutions = [
     t.solutions.crm,
@@ -47,8 +50,28 @@ export function SolutionsPage() {
     t.solutions.integration,
   ]
 
+  const breadcrumbs = [
+    { name: locale === 'de' ? 'Startseite' : 'Home', url: SITE_URL },
+    { name: t.solutions.title, url: `${SITE_URL}${locale === 'de' ? '/losungen' : '/en/solutions'}` },
+  ]
+
   return (
     <>
+      <SEO
+        title={t.seo.solutions.title}
+        description={t.seo.solutions.description}
+      />
+      <WebPageSchema
+        title={t.seo.solutions.title}
+        description={t.seo.solutions.description}
+      />
+      <BreadcrumbSchema items={breadcrumbs} />
+      <ServiceSchema
+        name="Custom Software Development"
+        description={t.solutions.intro}
+        timeRequired="P6W/P12W"
+      />
+
       {/* Header */}
       <Section className="pt-20 sm:pt-24 lg:pt-32 pb-12">
         <H1 className="mb-6">{t.solutions.title}</H1>

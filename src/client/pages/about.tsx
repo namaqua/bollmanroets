@@ -6,9 +6,12 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Divider } from '@/components/ui/divider'
 import { ArrowRightIcon, CheckIcon } from '@/components/ui/icons'
 import { useI18n } from '@/client/lib/i18n'
+import { SEO, BreadcrumbSchema, WebPageSchema } from '@/components/seo'
+
+const SITE_URL = 'https://bollman-roets.de'
 
 export function AboutPage() {
-  const { t, getLocalizedPath } = useI18n()
+  const { t, getLocalizedPath, locale } = useI18n()
 
   const steps = [
     t.about.howWeWork.steps.discovery,
@@ -25,8 +28,23 @@ export function AboutPage() {
     t.about.values.partnership,
   ]
 
+  const breadcrumbs = [
+    { name: locale === 'de' ? 'Startseite' : 'Home', url: SITE_URL },
+    { name: t.about.title, url: `${SITE_URL}${locale === 'de' ? '/uber-uns' : '/en/about'}` },
+  ]
+
   return (
     <>
+      <SEO
+        title={t.seo.about.title}
+        description={t.seo.about.description}
+      />
+      <WebPageSchema
+        title={t.seo.about.title}
+        description={t.seo.about.description}
+      />
+      <BreadcrumbSchema items={breadcrumbs} />
+
       {/* Header */}
       <Section className="pt-20 sm:pt-24 lg:pt-32 pb-12">
         <H1 className="mb-6">{t.about.title}</H1>

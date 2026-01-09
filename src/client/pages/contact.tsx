@@ -20,6 +20,9 @@ import {
 } from '@/components/ui/select'
 import { useI18n } from '@/client/lib/i18n'
 import { cn } from '@/lib/utils'
+import { SEO, BreadcrumbSchema, WebPageSchema } from '@/components/seo'
+
+const SITE_URL = 'https://bollman-roets.de'
 
 const createContactSchema = (t: ReturnType<typeof useI18n>['t']) =>
   z.object({
@@ -71,12 +74,25 @@ export function ContactPage() {
     setSubmitStatus('idle')
 
     try {
-      // Simulate API call for now
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-      console.log('Form submitted:', data)
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+
+      if (!response.ok) {
+        const errorData = await response.json()
+        console.error('Form submission error:', errorData)
+        setSubmitStatus('error')
+        return
+      }
+
       setSubmitStatus('success')
       reset()
-    } catch {
+    } catch (error) {
+      console.error('Form submission error:', error)
       setSubmitStatus('error')
     } finally {
       setIsSubmitting(false)
@@ -90,8 +106,23 @@ export function ContactPage() {
     { value: 'general', label: t.form.interestOptions.general },
   ]
 
+  const breadcrumbs = [
+    { name: locale === 'de' ? 'Startseite' : 'Home', url: SITE_URL },
+    { name: t.contact.title, url: `${SITE_URL}${locale === 'de' ? '/kontakt' : '/en/contact'}` },
+  ]
+
   return (
     <>
+      <SEO
+        title={t.seo.contact.title}
+        description={t.seo.contact.description}
+      />
+      <WebPageSchema
+        title={t.seo.contact.title}
+        description={t.seo.contact.description}
+      />
+      <BreadcrumbSchema items={breadcrumbs} />
+
       {/* Header */}
       <Section className="pt-20 sm:pt-24 lg:pt-32 pb-12">
         <H1 className="mb-6">{t.contact.title}</H1>
