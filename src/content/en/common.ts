@@ -15,7 +15,7 @@ export const en = {
     },
     contact: {
       title: 'Contact',
-      description: 'Contact Bollman & Roets for your software project. Discovery Day for €2,500 including requirements analysis and implementation plan.',
+      description: 'Contact Bollman & Roets for your software project. Discovery Day including requirements analysis and implementation plan.',
     },
   },
   nav: {
@@ -210,7 +210,6 @@ export const en = {
     discoveryDay: {
       title: 'Discovery Day',
       description: 'A day that brings clarity. We analyze your requirements, identify solution approaches, and deliver a concrete implementation plan.',
-      price: '€2,500',
       includes: 'Incl. detailed documentation and cost estimate',
     },
     directContact: {

@@ -274,12 +274,7 @@ export function ContactPage() {
                 <Body className="text-sm text-muted-foreground">
                   {t.contact.discoveryDay.description}
                 </Body>
-                <div className="pt-2">
-                  <span className="text-2xl font-bold text-primary">
-                    {t.contact.discoveryDay.price}
-                  </span>
-                </div>
-                <Small className="text-muted-foreground">
+                <Small className="text-muted-foreground pt-2">
                   {t.contact.discoveryDay.includes}
                 </Small>
               </CardContent>

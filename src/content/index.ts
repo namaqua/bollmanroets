@@ -121,7 +121,7 @@ export interface Translations {
   contact: {
     title: string
     intro: string
-    discoveryDay: { title: string; description: string; price: string; includes: string }
+    discoveryDay: { title: string; description: string; includes: string }
     directContact: { title: string; email: string; phone: string; address: string }
   }
 }

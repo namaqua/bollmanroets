@@ -64,7 +64,6 @@ export function LocalBusinessSchema() {
       latitude: 52.52,
       longitude: 13.405,
     },
-    priceRange: '€€€',
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
