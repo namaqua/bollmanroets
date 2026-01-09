@@ -7,7 +7,7 @@ export const de = {
     },
     about: {
       title: 'Über uns',
-      description: 'Bollman ⚡ Roets: 30+ Jahre Enterprise-Erfahrung. KI-beschleunigte Entwicklung individueller Software für den deutschen Mittelstand.',
+      description: 'Bollman & Roets: 30+ Jahre Enterprise-Erfahrung. KI-beschleunigte Entwicklung individueller Software für den deutschen Mittelstand.',
     },
     solutions: {
       title: 'Lösungen',
@@ -15,7 +15,7 @@ export const de = {
     },
     contact: {
       title: 'Kontakt',
-      description: 'Kontaktieren Sie Bollman ⚡ Roets für Ihr Software-Projekt. Discovery Day für €2.500 inkl. Anforderungsanalyse und Umsetzungsplan.',
+      description: 'Kontaktieren Sie Bollman & Roets für Ihr Software-Projekt. Discovery Day für €2.500 inkl. Anforderungsanalyse und Umsetzungsplan.',
     },
   },
   nav: {
@@ -62,7 +62,7 @@ export const de = {
   footer: {
     imprint: 'Impressum',
     privacy: 'Datenschutz',
-    copyright: '© 2025 Bollman ⚡ Roets. Alle Rechte vorbehalten.',
+    copyright: '© 2025 Bollman & Roets. Alle Rechte vorbehalten.',
   },
   language: {
     switch: 'Sprache wechseln',
@@ -79,7 +79,7 @@ export const de = {
     strapline: 'Maßgeschneiderte Software. Deutsche Präzision.',
     heroText: 'Wir entwickeln individuelle Software-Lösungen für den deutschen Mittelstand. Schnell, präzise, zu fairen Konditionen.',
     valueProps: {
-      title: 'Warum Bollman ⚡ Roets',
+      title: 'Warum Bollman & Roets',
       yourCode: {
         title: 'Ihr Code',
         description: 'Volle Eigentumsrechte an Ihrer Software. Kein Vendor Lock-in, keine wiederkehrenden Lizenzgebühren.',

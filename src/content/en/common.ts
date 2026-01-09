@@ -7,7 +7,7 @@ export const en = {
     },
     about: {
       title: 'About Us',
-      description: 'Bollman ⚡ Roets: 30+ years of enterprise experience. AI-accelerated development of custom software for German SMEs.',
+      description: 'Bollman & Roets: 30+ years of enterprise experience. AI-accelerated development of custom software for German SMEs.',
     },
     solutions: {
       title: 'Solutions',
@@ -15,7 +15,7 @@ export const en = {
     },
     contact: {
       title: 'Contact',
-      description: 'Contact Bollman ⚡ Roets for your software project. Discovery Day for €2,500 including requirements analysis and implementation plan.',
+      description: 'Contact Bollman & Roets for your software project. Discovery Day for €2,500 including requirements analysis and implementation plan.',
     },
   },
   nav: {
@@ -62,7 +62,7 @@ export const en = {
   footer: {
     imprint: 'Imprint',
     privacy: 'Privacy',
-    copyright: '© 2025 Bollman ⚡ Roets. All rights reserved.',
+    copyright: '© 2025 Bollman & Roets. All rights reserved.',
   },
   language: {
     switch: 'Switch language',
@@ -79,7 +79,7 @@ export const en = {
     strapline: 'Bespoke Software. German Precision.',
     heroText: 'We build custom software solutions for German SMEs. Fast, precise, fairly priced.',
     valueProps: {
-      title: 'Why Bollman ⚡ Roets',
+      title: 'Why Bollman & Roets',
       yourCode: {
         title: 'Your Code',
         description: 'Full ownership of your software. No vendor lock-in, no recurring license fees.',
