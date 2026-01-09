@@ -20,7 +20,7 @@
 @layer base {
   :root {
     /* Bollman & Roets Color Palette */
-    --midnight-navy: 220 40% 13%;
+    --midnight-navy: 220 55% 22%;
     --stone-gray: 220 10% 40%;
     --warm-white: 40 20% 98%;
     --brass-gold: 43 74% 49%;
@@ -28,19 +28,19 @@
 
     /* Semantic mappings */
     --background: 40 20% 98%;
-    --foreground: 220 40% 13%;
+    --foreground: 220 55% 22%;
     --card: 0 0% 100%;
-    --card-foreground: 220 40% 13%;
+    --card-foreground: 220 55% 22%;
     --popover: 0 0% 100%;
-    --popover-foreground: 220 40% 13%;
-    --primary: 220 40% 13%;
+    --popover-foreground: 220 55% 22%;
+    --primary: 220 55% 22%;
     --primary-foreground: 40 20% 98%;
     --secondary: 220 10% 90%;
-    --secondary-foreground: 220 40% 13%;
+    --secondary-foreground: 220 55% 22%;
     --muted: 220 10% 94%;
     --muted-foreground: 220 10% 40%;
     --accent: 43 74% 49%;
-    --accent-foreground: 220 40% 13%;
+    --accent-foreground: 220 55% 22%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
     --border: 220 10% 85%;
