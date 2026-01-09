@@ -37,7 +37,11 @@ export function HomePage() {
           />
         </div>
         <div className="relative">
-          <H1 className="mb-6 max-w-4xl">{t.home.strapline}</H1>
+          <H1 className="mb-6 max-w-4xl">
+            <BrandName />
+            <br />
+            {t.home.strapline}
+          </H1>
           <Body className="max-w-2xl text-lg text-muted-foreground mb-8">
             {t.home.heroText.split('. ').map((sentence, i, arr) => (
               <span key={i}>
