@@ -19,8 +19,9 @@ const interestValueMap: Record<string, string> = {
   general: 'general_question',
 }
 
-// Contact form schema
+// Contact form schema with tracking fields
 const contactSchema = z.object({
+  // Required form fields
   name: z.string().min(1, 'Name is required').max(100),
   company: z.string().min(1, 'Company is required').max(100),
   email: z.string().email('Invalid email address'),
@@ -28,14 +29,47 @@ const contactSchema = z.object({
   interest: z.enum(['discoveryDay', 'pilot', 'partnership', 'general']),
   message: z.string().min(1, 'Message is required').max(5000),
   privacy: z.boolean().refine((val) => val === true, 'Privacy consent required'),
+  marketingConsent: z.boolean().optional(),
+
+  // Source & Attribution
+  sourceUrl: z.string().url().optional(),
+  referrerUrl: z.string().nullable().optional(),
+  utmSource: z.string().nullable().optional(),
+  utmMedium: z.string().nullable().optional(),
+  utmCampaign: z.string().nullable().optional(),
+  utmContent: z.string().nullable().optional(),
+  utmTerm: z.string().nullable().optional(),
+
+  // Visitor Context
+  timezone: z.string().optional(),
+  browserLanguage: z.string().optional(),
+
+  // Device & Browser
+  deviceType: z.enum(['desktop', 'tablet', 'mobile']).optional(),
+  os: z.string().optional(),
+  browserName: z.string().optional(),
+  browserVersion: z.string().nullable().optional(),
+  screenResolution: z.string().optional(),
+
+  // Session Data
+  sessionId: z.string().optional(),
+  entryPage: z.string().optional(),
+  pagesViewed: z.array(z.string()).optional(),
+  pageCount: z.number().int().optional(),
+  timeOnSite: z.number().int().optional(),
+  returningVisitor: z.boolean().optional(),
+  scrollDepth: z.number().int().min(0).max(100).optional(),
+  timeOnFormPage: z.number().int().optional(),
+
+  // Form metadata
+  formName: z.string().optional(),
 })
 
 type ContactFormData = z.infer<typeof contactSchema>
 
 // Submit to Web Leads API
 async function submitToWebLeads(
-  data: ContactFormData,
-  sourceUrl: string
+  data: ContactFormData
 ): Promise<{ success: boolean; id?: string; error?: string }> {
   const apiKey = process.env.WEBLEADS_API_KEY
 
@@ -44,19 +78,52 @@ async function submitToWebLeads(
     return { success: false, error: 'API key not configured' }
   }
 
+  // Build payload with all tracking fields
+  // Only include non-null/non-undefined values
   const payload: Record<string, unknown> = {
+    // Required fields
     name: data.name,
     company: data.company,
     email: data.email,
     interest: interestValueMap[data.interest] || 'general_question',
     message: data.message,
     privacyConsent: data.privacy,
-    sourceUrl,
   }
 
-  if (data.phone) {
-    payload.phone = data.phone
-  }
+  // Optional form fields
+  if (data.phone) payload.phone = data.phone
+  if (data.marketingConsent !== undefined) payload.marketingConsent = data.marketingConsent
+  if (data.formName) payload.formName = data.formName
+
+  // Source & Attribution
+  if (data.sourceUrl) payload.sourceUrl = data.sourceUrl
+  if (data.referrerUrl) payload.referrerUrl = data.referrerUrl
+  if (data.utmSource) payload.utmSource = data.utmSource
+  if (data.utmMedium) payload.utmMedium = data.utmMedium
+  if (data.utmCampaign) payload.utmCampaign = data.utmCampaign
+  if (data.utmContent) payload.utmContent = data.utmContent
+  if (data.utmTerm) payload.utmTerm = data.utmTerm
+
+  // Visitor Context
+  if (data.timezone) payload.timezone = data.timezone
+  if (data.browserLanguage) payload.browserLanguage = data.browserLanguage
+
+  // Device & Browser
+  if (data.deviceType) payload.deviceType = data.deviceType
+  if (data.os) payload.os = data.os
+  if (data.browserName) payload.browserName = data.browserName
+  if (data.browserVersion) payload.browserVersion = data.browserVersion
+  if (data.screenResolution) payload.screenResolution = data.screenResolution
+
+  // Session Data
+  if (data.sessionId) payload.sessionId = data.sessionId
+  if (data.entryPage) payload.entryPage = data.entryPage
+  if (data.pagesViewed) payload.pagesViewed = data.pagesViewed
+  if (data.pageCount !== undefined) payload.pageCount = data.pageCount
+  if (data.timeOnSite !== undefined) payload.timeOnSite = data.timeOnSite
+  if (data.returningVisitor !== undefined) payload.returningVisitor = data.returningVisitor
+  if (data.scrollDepth !== undefined) payload.scrollDepth = data.scrollDepth
+  if (data.timeOnFormPage !== undefined) payload.timeOnFormPage = data.timeOnFormPage
 
   try {
     const response = await fetch(WEBLEADS_API_URL, {
@@ -143,7 +210,6 @@ contact.post(
     }
 
     const data = c.req.valid('json') as ContactFormData
-    const sourceUrl = c.req.header('referer') || 'https://br.luluwaldhund.de/kontakt'
 
     // Log submission locally
     console.log('Contact form submission:', {
@@ -154,10 +220,11 @@ contact.post(
       phone: data.phone || 'not provided',
       interest: interestLabels[data.interest]?.en || data.interest,
       messageLength: data.message.length,
+      hasTracking: !!(data.sessionId || data.utmSource),
     })
 
     // Submit to Web Leads API (graceful degradation - don't fail user request if API fails)
-    const webLeadsResult = await submitToWebLeads(data, sourceUrl)
+    const webLeadsResult = await submitToWebLeads(data)
     console.log('Web Leads API result:', {
       success: webLeadsResult.success,
       id: webLeadsResult.id,

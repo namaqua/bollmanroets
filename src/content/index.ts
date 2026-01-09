@@ -36,6 +36,7 @@ export interface Translations {
     required: string
     invalidEmail: string
     privacyConsent: string
+    marketingConsent: string
     selectOption: string
     sending: string
     success: string

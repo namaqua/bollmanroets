@@ -19,6 +19,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { useI18n } from '@/client/lib/i18n'
+import { getFormTrackingData } from '@/client/lib/use-tracking'
 import { cn } from '@/lib/utils'
 import { SEO, BreadcrumbSchema, WebPageSchema } from '@/components/seo'
 
@@ -35,6 +36,7 @@ const createContactSchema = (t: ReturnType<typeof useI18n>['t']) =>
     privacy: z.boolean().refine((val) => val === true, {
       message: t.form.required,
     }),
+    marketingConsent: z.boolean().optional(),
   })
 
 type ContactFormData = z.infer<ReturnType<typeof createContactSchema>>
@@ -63,23 +65,34 @@ export function ContactPage() {
       interest: '',
       message: '',
       privacy: false,
+      marketingConsent: false,
     },
   })
 
   const interestValue = watch('interest')
   const privacyValue = watch('privacy')
+  const marketingConsentValue = watch('marketingConsent')
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true)
     setSubmitStatus('idle')
 
     try {
+      // Collect tracking data
+      const trackingData = getFormTrackingData('contact')
+
+      // Combine form data with tracking data
+      const payload = {
+        ...data,
+        ...trackingData,
+      }
+
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(payload),
       })
 
       if (!response.ok) {
@@ -228,21 +241,34 @@ export function ContactPage() {
                 )}
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <div className="flex items-start gap-3">
+                    <Checkbox
+                      id="privacy"
+                      checked={privacyValue}
+                      onCheckedChange={(checked) => setValue('privacy', checked === true)}
+                      className={cn(errors.privacy && 'border-destructive')}
+                    />
+                    <Label htmlFor="privacy" className="text-sm leading-relaxed cursor-pointer">
+                      {t.form.privacyConsent} <span className="text-destructive">*</span>
+                    </Label>
+                  </div>
+                  {errors.privacy && (
+                    <Small className="text-destructive">{errors.privacy.message}</Small>
+                  )}
+                </div>
+
                 <div className="flex items-start gap-3">
                   <Checkbox
-                    id="privacy"
-                    checked={privacyValue}
-                    onCheckedChange={(checked) => setValue('privacy', checked === true)}
-                    className={cn(errors.privacy && 'border-destructive')}
+                    id="marketingConsent"
+                    checked={marketingConsentValue}
+                    onCheckedChange={(checked) => setValue('marketingConsent', checked === true)}
                   />
-                  <Label htmlFor="privacy" className="text-sm leading-relaxed cursor-pointer">
-                    {t.form.privacyConsent} <span className="text-destructive">*</span>
+                  <Label htmlFor="marketingConsent" className="text-sm leading-relaxed cursor-pointer text-muted-foreground">
+                    {t.form.marketingConsent}
                   </Label>
                 </div>
-                {errors.privacy && (
-                  <Small className="text-destructive">{errors.privacy.message}</Small>
-                )}
               </div>
 
               {submitStatus === 'success' && (

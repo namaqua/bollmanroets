@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { I18nProvider } from '@/client/lib/i18n'
+import { useTracking } from '@/client/lib/use-tracking'
 import { PageLayout } from '@/components/layout/page-layout'
 import { OrganizationSchema, LocalBusinessSchema } from '@/components/seo'
 import {
@@ -12,6 +13,9 @@ import {
 } from '@/client/pages'
 
 function AppRoutes() {
+  // Initialize visitor tracking and track page views on route changes
+  useTracking()
+
   return (
     <PageLayout>
       {/* Global structured data */}

@@ -43,6 +43,7 @@ export const de = {
     required: 'Pflichtfeld',
     invalidEmail: 'Ungültige E-Mail-Adresse',
     privacyConsent: 'Ich stimme der Datenschutzerklärung zu',
+    marketingConsent: 'Ich möchte Informationen über neue Produkte und Services erhalten',
     selectOption: 'Bitte auswählen',
     sending: 'Wird gesendet...',
     success: 'Nachricht erfolgreich gesendet',

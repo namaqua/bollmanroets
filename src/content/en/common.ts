@@ -43,6 +43,7 @@ export const en = {
     required: 'Required field',
     invalidEmail: 'Invalid email address',
     privacyConsent: 'I agree to the privacy policy',
+    marketingConsent: 'I would like to receive information about new products and services',
     selectOption: 'Please select',
     sending: 'Sending...',
     success: 'Message sent successfully',
