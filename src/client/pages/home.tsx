@@ -5,11 +5,12 @@ import { Button } from '@/components/ui/button'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Divider } from '@/components/ui/divider'
 import { ArrowRightIcon, CheckIcon } from '@/components/ui/icons'
+import { BrandName } from '@/components/ui/brand-name'
 import { useI18n } from '@/client/lib/i18n'
 import { SEO, WebPageSchema } from '@/components/seo'
 
 export function HomePage() {
-  const { t, getLocalizedPath } = useI18n()
+  const { t, locale, getLocalizedPath } = useI18n()
 
   return (
     <>
@@ -55,7 +56,9 @@ export function HomePage() {
 
       {/* Value Propositions */}
       <Section>
-        <H2 className="mb-12 text-center">{t.home.valueProps.title}</H2>
+        <H2 className="mb-12 text-center">
+          <BrandName prefix={locale === 'de' ? 'Warum' : 'Why'} />
+        </H2>
         <div className="grid gap-8 md:grid-cols-3">
           <Card>
             <CardHeader>
