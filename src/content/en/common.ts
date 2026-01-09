@@ -76,8 +76,8 @@ export const en = {
     openMenu: 'Open menu',
   },
   home: {
-    strapline: 'Bespoke Software. German Precision.',
-    heroText: 'We build custom software solutions for German SMEs. Fast, precise, fairly priced.',
+    strapline: 'Software Manufacturing.',
+    heroText: 'We empower the German Mittelstand to take bold actions. Secure your future with tailored code and solution engineering. On-premise, German cloud, or your infrastructure of choice.',
     valueProps: {
       title: 'Why Bollman & Roets',
       yourCode: {

@@ -76,8 +76,8 @@ export const de = {
     openMenu: 'Menü öffnen',
   },
   home: {
-    strapline: 'Maßgeschneiderte Software. Deutsche Präzision.',
-    heroText: 'Wir entwickeln individuelle Software-Lösungen für den deutschen Mittelstand. Schnell, präzise, zu fairen Konditionen.',
+    strapline: 'Software-Manufaktur.',
+    heroText: 'Wir befähigen den deutschen Mittelstand zu mutigen Entscheidungen. Sichern Sie Ihre Zukunft mit maßgeschneidertem Code und Solution Engineering. On-Premise, Deutsche Cloud oder Ihre bevorzugte Infrastruktur.',
     valueProps: {
       title: 'Warum Bollman & Roets',
       yourCode: {
