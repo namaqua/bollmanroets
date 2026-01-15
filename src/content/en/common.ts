@@ -7,7 +7,7 @@ export const en = {
     },
     about: {
       title: 'About Us',
-      description: 'Bollman & Roets: 30+ years of enterprise experience. AI-accelerated development of custom software for German SMEs.',
+      description: 'Bollman + Roets: 30+ years of enterprise experience. AI-accelerated development of custom software for German SMEs.',
     },
     solutions: {
       title: 'Solutions',
@@ -15,7 +15,15 @@ export const en = {
     },
     contact: {
       title: 'Contact',
-      description: 'Contact Bollman & Roets for your software project. Discovery Day including requirements analysis and implementation plan.',
+      description: 'Contact Bollman + Roets for your software project. Discovery Day including requirements analysis and implementation plan.',
+    },
+    partner: {
+      title: 'Partner Program | Bollman + Roets',
+      description: 'Become a Bollman + Roets partner. 30% commission on build and recurring revenue. Ideal for consultants and advisors.',
+    },
+    investor: {
+      title: 'For Investors | Bollman + Roets',
+      description: 'AI-Native Software Manufacturing for German SMEs. 60-85% gross margin, scalable partner expansion.',
     },
   },
   nav: {
@@ -27,6 +35,9 @@ export const en = {
     partnerPortal: 'Partner Portal',
     clientPortalTooltip: 'Access for existing clients',
     partnerPortalTooltip: 'Access for partners',
+    more: 'More',
+    partner: 'Become a Partner',
+    investor: 'Investors',
   },
   buttons: {
     learnMore: 'Learn more',
@@ -52,6 +63,7 @@ export const en = {
       discoveryDay: 'Discovery Day',
       pilot: 'Pilot Project',
       partnership: 'Partnership Inquiry',
+      investment: 'Investment Discussion',
       general: 'General Question',
     },
   },
@@ -63,7 +75,7 @@ export const en = {
   footer: {
     imprint: 'Imprint',
     privacy: 'Privacy',
-    copyright: '© 2025 Bollman & Roets. All rights reserved.',
+    copyright: '© 2025 Bollman + Roets. All rights reserved.',
   },
   language: {
     switch: 'Switch language',
@@ -78,9 +90,11 @@ export const en = {
   },
   home: {
     strapline: 'Software Manufacturing.',
+    headline: 'Bespoke Enterprise Software',
+    subheadline: 'Faster than SaaS. Cheaper than custom development.',
     heroText: 'We empower the German Mittelstand to take bold actions. Secure your future with tailored code and solution engineering. On-premise, German cloud, or your infrastructure of choice.',
     valueProps: {
-      title: 'Why Bollman & Roets',
+      title: 'Why Bollman + Roets',
       yourCode: {
         title: 'Your Code',
         description: 'Full ownership of your software. No vendor lock-in, no recurring license fees.',
@@ -93,6 +107,32 @@ export const en = {
         title: 'Enterprise Quality',
         description: '30+ years of architecture expertise. Proven patterns, scalable solutions.',
       },
+    },
+    targetGroup: {
+      label: 'Who We Build For',
+      headline: 'Software for decision-makers who expect more',
+      cards: [
+        {
+          icon: 'progress',
+          title: 'Progress Over Reports',
+          description: 'You want to see results, not just read status reports.',
+        },
+        {
+          icon: 'niche',
+          title: 'Niche Requirements',
+          description: 'Your processes are too specialized for off-the-shelf software.',
+        },
+        {
+          icon: 'control',
+          title: 'Full Control',
+          description: 'You want to own the code, not rent it.',
+        },
+        {
+          icon: 'ai',
+          title: 'AI with Sovereignty',
+          description: 'You want AI benefits without US cloud dependency.',
+        },
+      ],
     },
     comparison: {
       title: 'What sets us apart',
@@ -107,6 +147,66 @@ export const en = {
       vsDiy: {
         title: 'vs. DIY / No-Code',
         description: 'Real software, not compromises. Full capability, unlimited scalability.',
+      },
+      columns: [
+        {
+          title: 'IT System Houses',
+          highlight: false,
+          points: [
+            '6-12 month delivery time',
+            '€300k-€500k project costs',
+            'Scope creep & change requests',
+            '30% project failure rate',
+          ],
+        },
+        {
+          title: 'Enterprise SaaS',
+          highlight: false,
+          points: [
+            '€150k+ 3-year TCO',
+            '80% features unused',
+            'Vendor lock-in',
+            'Your data in US cloud',
+          ],
+        },
+        {
+          title: 'Bollman + Roets',
+          highlight: true,
+          points: [
+            '2-4 weeks delivery',
+            '€50k-€150k fixed price',
+            'You own the code',
+            'On-premise or DE cloud',
+          ],
+        },
+      ],
+    },
+    projects: {
+      label: 'Projects',
+      headline: 'Proven Results',
+      items: [
+        {
+          title: 'CRM for Machinery',
+          description: 'Complex quote logic and ERP integration for mid-sized machine manufacturer.',
+          timeline: '4 weeks',
+          icon: 'crm',
+        },
+        {
+          title: 'HR Compliance Tool',
+          description: 'Automated documentation and audit trail for 200+ employees.',
+          timeline: '3 weeks',
+          icon: 'hr',
+        },
+        {
+          title: 'CPQ System',
+          description: 'Product configurator with rule-based pricing for technical sales.',
+          timeline: '6 weeks',
+          icon: 'cpq',
+        },
+      ],
+      quote: {
+        text: 'Finally software that fits our processes – not the other way around.',
+        attribution: 'Managing Director, Machinery',
       },
     },
     solutions: {
@@ -218,6 +318,177 @@ export const en = {
       email: 'contact@bollman-roets.de',
       phone: '+49 (0) 123 456 789',
       address: 'Musterstraße 1, 12345 Berlin',
+    },
+  },
+  partner: {
+    title: 'Partner Program',
+    hero: {
+      headline: 'The "Asset Layer" for Strategic Consultants',
+      subheadline: 'Transform your process maps into recurring revenue – without building a development team.',
+      entityBlock: {
+        role: 'Strategic Partner',
+        commission: '30% Build + 30% Recurring',
+        effort: '1 Discovery Day per project',
+        support: 'Full technical support',
+      },
+    },
+    impactGap: {
+      headline: 'The Impact Gap',
+      problem: 'You identify process improvements worth millions. Then you leave the room – and watch implementation fail or others profit from it.',
+      metrics: [
+        { label: 'Lost Revenue', value: '€90k-€150k/Year' },
+        { label: 'Relationship Risk', value: '20% Client Loss' },
+        { label: 'Opportunity Cost', value: '10-15h/Week' },
+      ],
+    },
+    executionTrap: {
+      headline: 'The Execution Trap',
+      options: [
+        { title: 'Hire a Dev Shop', consequence: 'They steal your client relationship' },
+        { title: 'Hire Developers', consequence: '€300k/Year overhead' },
+        { title: 'Consult Only', consequence: 'Growth ceiling reached' },
+      ],
+    },
+    partnershipModel: {
+      headline: 'The Partnership Model',
+      steps: [
+        { actor: 'You', action: 'Take the measurements (1 Discovery Day)' },
+        { actor: 'We', action: 'Tailor the software (2-4 weeks)' },
+        { actor: 'Client', action: 'Receives working software' },
+        { actor: 'You', action: 'Earn 30% build + 30% recurring' },
+      ],
+    },
+    revenueTable: {
+      build: {
+        title: 'Build Phase (30% Partner Share)',
+        rows: [
+          { tier: 'Automation', clientPays: '€18,000', partnerReceives: '€5,400' },
+          { tier: 'Intelligence', clientPays: '€35,000', partnerReceives: '€10,500' },
+          { tier: 'Differentiation', clientPays: '€80,000', partnerReceives: '€24,000' },
+          { tier: 'Transformation', clientPays: '€150,000', partnerReceives: '€45,000' },
+        ],
+      },
+      recurring: {
+        title: 'Recurring Phase (30% Monthly)',
+        rows: [
+          { tier: 'Small', monthly: '€400', partnerMonthly: '€120', annual: '€1,440' },
+          { tier: 'Medium', monthly: '€800', partnerMonthly: '€240', annual: '€2,880' },
+          { tier: 'Large', monthly: '€1,500', partnerMonthly: '€450', annual: '€5,400' },
+        ],
+      },
+    },
+    caseStudies: {
+      headline: 'Partner Success Stories',
+      items: [
+        { profile: 'HR Consultant (Munich)', project: 'Compliance Tool', earned: '€10,500 + €2,880/Year', effort: '1 Discovery Day' },
+        { profile: 'SAP Consultant (Frankfurt)', project: 'CPQ System', earned: '€24,000 + €5,400/Year', effort: '1 Discovery Day + 2 Check-ins' },
+        { profile: 'Process Expert (Stuttgart)', project: 'CRM', earned: '€5,400 + €1,440/Year', effort: '1 Discovery Day' },
+      ],
+    },
+    criteria: {
+      headline: 'Ideal Partner Profile',
+      items: [
+        'Independent consultant or 2-10 person boutique',
+        'Existing client base in German SMEs',
+        'Strategy/process expertise (SAP, ERP, HR)',
+        'Clients ask: "Can you build that?"',
+        'Desire for recurring revenue',
+      ],
+    },
+    cta: {
+      headline: 'Book Partner Discovery Day',
+      description: 'Fee: €2,000 (You receive €600 back)',
+      button: 'Request Discovery Day',
+    },
+  },
+  investor: {
+    title: 'For Investors',
+    hero: {
+      headline: 'AI-Native Software Manufacturing for German SMEs',
+      subheadline: 'Enterprise software in 2-4 weeks, not months. You own the code.',
+      entityBlock: {
+        company: 'Bollman + Roets',
+        model: 'AI-Native Software Manufacturing',
+        aiGeneration: '90% AI-generated (10% human validation)',
+        delivery: '2-4 weeks (vs. 6-12 month industry average)',
+        cost: '€56k avg. 3-year TCO (vs. €150k Salesforce)',
+        margin: '60-85% gross margin (growing)',
+      },
+    },
+    moat: {
+      headline: 'The 5-Layer Moat',
+      layers: [
+        { name: 'AI-Native', mechanism: '90% AI-generated code', impact: '10x faster' },
+        { name: 'Pattern Library', mechanism: 'Reusable code patterns', impact: '60%→85% margin' },
+        { name: 'Partner Network', mechanism: 'Partners sell, we build', impact: 'Zero CAC' },
+        { name: 'Process Translation', mechanism: 'Excel → Schema in days', impact: 'SME expertise' },
+        { name: 'Sub-Agent Architecture', mechanism: 'Multi-agent dev system', impact: 'Consistent quality' },
+      ],
+      compoundingEffect: 'More projects → More patterns → Less dev time → Higher margins → More profit',
+    },
+    financials: {
+      headline: 'Financial Model',
+      unitEconomics: {
+        title: 'Unit Economics Evolution',
+        rows: [
+          { metric: 'Avg. Deal', year1: '€60k', year3: '€55k', change: '-8%' },
+          { metric: 'Dev Time', year1: '80h', year3: '30h', change: '-62%' },
+          { metric: 'Gross Margin', year1: '60%', year3: '80%', change: '+33%' },
+          { metric: 'Revenue/Dev Hour', year1: '€750', year3: '€1,833', change: '+144%' },
+        ],
+      },
+      patternGrowth: {
+        title: 'Pattern Library Growth',
+        rows: [
+          { year: 'Year 1', patterns: '50', margin: '60%' },
+          { year: 'Year 2', patterns: '250', margin: '70%' },
+          { year: 'Year 3', patterns: '500', margin: '80%' },
+          { year: 'Year 5', patterns: '1,000+', margin: '85%+' },
+        ],
+      },
+    },
+    market: {
+      headline: 'Market Opportunity',
+      tam: { label: 'TAM', value: '€20B/Year', description: 'German custom software market' },
+      sam: { label: 'SAM', value: '€5B/Year', description: 'SME software (50-500 employees)' },
+      som: { label: 'SOM', value: '€500M/Year', description: 'Achievable in years 1-3' },
+      penetration: [
+        { year: 'Year 1', clients: '20', revenue: '€1M' },
+        { year: 'Year 2', clients: '100', revenue: '€5M' },
+        { year: 'Year 3', clients: '300', revenue: '€15M' },
+      ],
+    },
+    competitive: {
+      vsSaas: {
+        title: 'vs. Enterprise SaaS',
+        dimensions: [
+          { dimension: 'Time to Value', competitor: '6-12 months', us: '2-4 weeks' },
+          { dimension: '3-Year TCO', competitor: '€150k-€500k', us: '€56k-€80k' },
+          { dimension: 'Feature Fit', competitor: '80% unused', us: '100% tailored' },
+          { dimension: 'Data Ownership', competitor: 'Vendor lock-in', us: 'You own the code' },
+        ],
+      },
+      vsDev: {
+        title: 'vs. Traditional Development',
+        dimensions: [
+          { dimension: 'Delivery', competitor: '6-12 months', us: '2-4 weeks' },
+          { dimension: 'Cost', competitor: '€300k-€500k', us: '€50k-€150k' },
+          { dimension: 'Success Rate', competitor: '30%', us: '95%+' },
+          { dimension: 'Method', competitor: 'Humans only', us: '90% AI' },
+        ],
+      },
+    },
+    traction: {
+      headline: 'Traction',
+      status: 'Pre-Revenue (Foundation Phase)',
+      pipeline: '1x €1B company CRM opportunity',
+      partnerInterest: '15 Discovery Day inquiries',
+      team: '1 Founder (technical + business)',
+      runway: '12 months',
+    },
+    cta: {
+      headline: 'Schedule a Conversation',
+      button: 'Get in Touch',
     },
   },
 } as const

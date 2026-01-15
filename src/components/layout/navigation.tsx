@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useI18n, useTranslations } from '@/client/lib/i18n'
 import { Button } from '@/components/ui/button'
 import {
+  ChevronDownIcon,
   CloseIcon,
   HandshakeIcon,
   LockIcon,
@@ -16,11 +17,21 @@ interface NavItem {
   href: string
 }
 
+interface DropdownItem {
+  labelKey: 'partner' | 'investor'
+  href: string
+}
+
 const navItems: NavItem[] = [
   { labelKey: 'home', href: '/' },
   { labelKey: 'about', href: '/uber-uns' },
   { labelKey: 'solutions', href: '/losungen' },
   { labelKey: 'contact', href: '/kontakt' },
+]
+
+const moreItems: DropdownItem[] = [
+  { labelKey: 'partner', href: '/partner' },
+  { labelKey: 'investor', href: '/investoren' },
 ]
 
 interface PortalLink {
@@ -54,6 +65,28 @@ export function DesktopNav({ className }: { className?: string }) {
   const t = useTranslations()
   const { locale, getLocalizedPath } = useI18n()
   const location = useLocation()
+  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const dropdownRef = useRef<HTMLLIElement>(null)
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
+  // Close dropdown on route change
+  useEffect(() => {
+    setDropdownOpen(false)
+  }, [location.pathname])
+
+  const isMoreActive = moreItems.some(item =>
+    isActiveRoute(location.pathname, item.href, locale)
+  )
 
   return (
     <nav
@@ -82,6 +115,64 @@ export function DesktopNav({ className }: { className?: string }) {
             </li>
           )
         })}
+
+        {/* More Dropdown */}
+        <li className="relative" ref={dropdownRef}>
+          <button
+            onClick={() => setDropdownOpen(!dropdownOpen)}
+            className={cn(
+              'relative flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors rounded-md',
+              'hover:bg-accent hover:text-accent-foreground',
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
+              isMoreActive
+                ? 'text-foreground after:absolute after:bottom-0 after:left-3 after:right-3 after:h-0.5 after:bg-brass-gold'
+                : 'text-muted-foreground'
+            )}
+            aria-expanded={dropdownOpen}
+            aria-haspopup="true"
+          >
+            {t.nav.more}
+            <ChevronDownIcon
+              size={14}
+              className={cn(
+                'transition-transform duration-200',
+                dropdownOpen && 'rotate-180'
+              )}
+            />
+          </button>
+
+          {dropdownOpen && (
+            <div
+              className="absolute top-full left-0 mt-1 min-w-[180px] rounded-md border bg-background shadow-lg z-50"
+              role="menu"
+            >
+              <ul className="py-1">
+                {moreItems.map((item) => {
+                  const isActive = isActiveRoute(location.pathname, item.href, locale)
+                  return (
+                    <li key={item.href} role="none">
+                      <Link
+                        to={getLocalizedPath(item.href)}
+                        role="menuitem"
+                        className={cn(
+                          'block px-4 py-2 text-sm transition-colors',
+                          'hover:bg-accent hover:text-accent-foreground',
+                          'focus-visible:outline-none focus-visible:bg-accent',
+                          isActive
+                            ? 'text-foreground bg-accent/50'
+                            : 'text-muted-foreground'
+                        )}
+                        onClick={() => setDropdownOpen(false)}
+                      >
+                        {t.nav[item.labelKey]}
+                      </Link>
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
+          )}
+        </li>
       </ul>
 
       <div className="h-6 w-px bg-border" aria-hidden="true" />
@@ -156,11 +247,11 @@ export function MobileNav() {
               <Link
                 to={getLocalizedPath('/')}
                 onClick={closeMenu}
-                className="flex items-center gap-1 text-lg font-semibold"
+                className="flex items-center gap-1 text-xl font-bold"
               >
-                <span className="text-midnight-navy">Bollman</span>
-                <span className="text-brass-gold">&</span>
-                <span className="text-midnight-navy">Roets</span>
+                <span className="text-midnight-navy">B</span>
+                <span className="text-brass-gold">+</span>
+                <span className="text-midnight-navy">R</span>
               </Link>
               <Button
                 variant="ghost"
@@ -196,6 +287,36 @@ export function MobileNav() {
                 )
               })}
             </ul>
+
+            {/* More section */}
+            <div className="border-t px-4 py-4">
+              <p className="mb-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                {t.nav.more}
+              </p>
+              <ul className="flex flex-col gap-1">
+                {moreItems.map((item) => {
+                  const isActive = isActiveRoute(location.pathname, item.href, locale)
+                  return (
+                    <li key={item.href}>
+                      <Link
+                        to={getLocalizedPath(item.href)}
+                        onClick={closeMenu}
+                        className={cn(
+                          'flex min-h-[44px] items-center px-3 py-3 text-base font-medium rounded-md',
+                          'transition-colors',
+                          isActive
+                            ? 'bg-accent text-accent-foreground'
+                            : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'
+                        )}
+                        aria-current={isActive ? 'page' : undefined}
+                      >
+                        {t.nav[item.labelKey]}
+                      </Link>
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
 
             <div className="border-t px-4 py-4">
               <p className="mb-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">

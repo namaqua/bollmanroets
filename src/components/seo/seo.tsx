@@ -24,8 +24,8 @@ export function SEO({
   const location = useLocation()
 
   const pageTitle = title
-    ? `${title} | Bollman & Roets`
-    : 'Bollman & Roets | Maßgeschneiderte Software für den Mittelstand'
+    ? `${title} | Bollman + Roets`
+    : 'Bollman + Roets | Maßgeschneiderte Software für den Mittelstand'
 
   const pageDescription = description || t.seo.defaultDescription
   const canonicalUrl = `${SITE_URL}${location.pathname}`
@@ -87,7 +87,7 @@ export function SEO({
       <meta property="og:image" content={imageUrl} />
       <meta property="og:locale" content={locale === 'de' ? 'de_DE' : 'en_US'} />
       <meta property="og:locale:alternate" content={locale === 'de' ? 'en_US' : 'de_DE'} />
-      <meta property="og:site_name" content="Bollman & Roets" />
+      <meta property="og:site_name" content="Bollman + Roets" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />

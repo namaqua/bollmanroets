@@ -13,7 +13,7 @@ export function OrganizationSchema() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Bollman & Roets',
+    name: 'Bollman + Roets',
     url: SITE_URL,
     logo: `${SITE_URL}/logo.svg`,
     description: 'Maßgeschneiderte Software-Lösungen für den deutschen Mittelstand. CRM, CPQ, HR-Systeme in 6-12 Wochen.',
@@ -47,7 +47,7 @@ export function LocalBusinessSchema() {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     '@id': `${SITE_URL}/#organization`,
-    name: 'Bollman & Roets',
+    name: 'Bollman + Roets',
     image: `${SITE_URL}/og-image.jpg`,
     url: SITE_URL,
     telephone: '+49-123-456-789',
@@ -132,12 +132,12 @@ export function WebPageSchema({
     inLanguage: locale === 'de' ? 'de-DE' : 'en-US',
     isPartOf: {
       '@type': 'WebSite',
-      name: 'Bollman & Roets',
+      name: 'Bollman + Roets',
       url: SITE_URL,
     },
     publisher: {
       '@type': 'Organization',
-      name: 'Bollman & Roets',
+      name: 'Bollman + Roets',
       url: SITE_URL,
     },
   }
@@ -167,7 +167,7 @@ export function ServiceSchema({
     description: description,
     provider: {
       '@type': 'Organization',
-      name: 'Bollman & Roets',
+      name: 'Bollman + Roets',
       url: SITE_URL,
     },
     areaServed: {

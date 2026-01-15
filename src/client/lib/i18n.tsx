@@ -16,6 +16,20 @@ import {
 
 const STORAGE_KEY = 'br-locale'
 
+// Route mappings for paths that differ between locales
+const routeMap: Record<string, { de: string; en: string }> = {
+  'uber-uns': { de: 'uber-uns', en: 'about' },
+  'about': { de: 'uber-uns', en: 'about' },
+  'losungen': { de: 'losungen', en: 'solutions' },
+  'solutions': { de: 'losungen', en: 'solutions' },
+  'kontakt': { de: 'kontakt', en: 'contact' },
+  'contact': { de: 'kontakt', en: 'contact' },
+  'partner': { de: 'partner', en: 'partners' },
+  'partners': { de: 'partner', en: 'partners' },
+  'investoren': { de: 'investoren', en: 'investors' },
+  'investors': { de: 'investoren', en: 'investors' },
+}
+
 interface I18nContextValue {
   locale: Locale
   t: Translations
@@ -73,7 +87,13 @@ export function I18nProvider({ children }: { children: ReactNode }) {
       segments.shift()
     }
 
-    const basePath = segments.join('/')
+    // Translate route segments based on target locale
+    const translatedSegments = segments.map(segment => {
+      const mapping = routeMap[segment]
+      return mapping ? mapping[locale] : segment
+    })
+
+    const basePath = translatedSegments.join('/')
 
     // German is default, no prefix needed
     if (locale === 'de') {
@@ -93,7 +113,13 @@ export function I18nProvider({ children }: { children: ReactNode }) {
       segments.shift()
     }
 
-    const basePath = segments.join('/')
+    // Translate route segments based on target locale
+    const translatedSegments = segments.map(segment => {
+      const mapping = routeMap[segment]
+      return mapping ? mapping[newLocale] : segment
+    })
+
+    const basePath = translatedSegments.join('/')
 
     let newPath: string
     if (newLocale === 'de') {

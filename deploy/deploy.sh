@@ -1,11 +1,11 @@
 #!/bin/bash
-# Bollman & Roets - Deployment Script
+# Bollman + Roets - Deployment Script
 # Usage: ./deploy/deploy.sh
 
 set -e
 
 echo "========================================"
-echo "Deploying Bollman & Roets"
+echo "Deploying Bollman + Roets"
 echo "========================================"
 
 # Configuration

@@ -6,7 +6,7 @@ interface BrandNameProps {
 }
 
 /**
- * Renders "Bollman & Roets" with the ampersand in brass-gold color.
+ * Renders "Bollman + Roets" with the plus sign in brass-gold color.
  * Optionally accepts a prefix like "Why" or "Warum".
  */
 export function BrandName({ prefix, className }: BrandNameProps) {
@@ -15,7 +15,7 @@ export function BrandName({ prefix, className }: BrandNameProps) {
       {prefix && <>{prefix} </>}
       <span className="text-midnight-navy">Bollman</span>
       {' '}
-      <span className="text-brass-gold">&</span>
+      <span className="text-brass-gold">+</span>
       {' '}
       <span className="text-midnight-navy">Roets</span>
     </span>

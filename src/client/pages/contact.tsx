@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
+import { useSearchParams } from 'react-router-dom'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { Section } from '@/components/ui/section'
@@ -43,8 +44,12 @@ type ContactFormData = z.infer<ReturnType<typeof createContactSchema>>
 
 export function ContactPage() {
   const { t, locale } = useI18n()
+  const [searchParams] = useSearchParams()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+
+  // Valid interest options for URL parameter pre-selection
+  const validInterests = ['discoveryDay', 'pilot', 'partnership', 'investment', 'general']
 
   const schema = createContactSchema(t)
 
@@ -68,6 +73,14 @@ export function ContactPage() {
       marketingConsent: false,
     },
   })
+
+  // Pre-select interest from URL query parameter
+  useEffect(() => {
+    const interestParam = searchParams.get('interest')
+    if (interestParam && validInterests.includes(interestParam)) {
+      setValue('interest', interestParam)
+    }
+  }, [searchParams, setValue])
 
   const interestValue = watch('interest')
   const privacyValue = watch('privacy')
@@ -116,6 +129,7 @@ export function ContactPage() {
     { value: 'discoveryDay', label: t.form.interestOptions.discoveryDay },
     { value: 'pilot', label: t.form.interestOptions.pilot },
     { value: 'partnership', label: t.form.interestOptions.partnership },
+    { value: 'investment', label: t.form.interestOptions.investment },
     { value: 'general', label: t.form.interestOptions.general },
   ]
 

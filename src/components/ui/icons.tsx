@@ -170,3 +170,160 @@ export const ChevronDownIcon = React.forwardRef<SVGSVGElement, IconProps>(
   )
 )
 ChevronDownIcon.displayName = 'ChevronDownIcon'
+
+export const TrendingUpIcon = React.forwardRef<SVGSVGElement, IconProps>(
+  ({ className, size = defaultSize, ...props }, ref) => (
+    <svg
+      ref={ref}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      strokeWidth={defaultStroke}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={cn(iconBase, className)}
+      {...props}
+    >
+      <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+      <polyline points="17 6 23 6 23 12" />
+    </svg>
+  )
+)
+TrendingUpIcon.displayName = 'TrendingUpIcon'
+
+export const SettingsIcon = React.forwardRef<SVGSVGElement, IconProps>(
+  ({ className, size = defaultSize, ...props }, ref) => (
+    <svg
+      ref={ref}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      strokeWidth={defaultStroke}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={cn(iconBase, className)}
+      {...props}
+    >
+      <circle cx="12" cy="12" r="3" />
+      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+    </svg>
+  )
+)
+SettingsIcon.displayName = 'SettingsIcon'
+
+export const ShieldCheckIcon = React.forwardRef<SVGSVGElement, IconProps>(
+  ({ className, size = defaultSize, ...props }, ref) => (
+    <svg
+      ref={ref}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      strokeWidth={defaultStroke}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={cn(iconBase, className)}
+      {...props}
+    >
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      <path d="m9 12 2 2 4-4" />
+    </svg>
+  )
+)
+ShieldCheckIcon.displayName = 'ShieldCheckIcon'
+
+export const BrainCircuitIcon = React.forwardRef<SVGSVGElement, IconProps>(
+  ({ className, size = defaultSize, ...props }, ref) => (
+    <svg
+      ref={ref}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      strokeWidth={defaultStroke}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={cn(iconBase, className)}
+      {...props}
+    >
+      <path d="M12 4.5a2.5 2.5 0 0 0-4.96-.46 2.5 2.5 0 0 0-1.98 3 2.5 2.5 0 0 0-1.32 4.24 3 3 0 0 0 .34 5.58 2.5 2.5 0 0 0 2.96 3.08 2.5 2.5 0 0 0 4.91.05L12 20V4.5Z" />
+      <path d="M16 8V5c0-1.1.9-2 2-2" />
+      <path d="M12 13h4" />
+      <path d="M12 18h6a2 2 0 0 1 2 2v1" />
+      <path d="M12 8h8" />
+      <path d="M20.5 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z" />
+      <path d="M16.5 13a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z" />
+      <path d="M20.5 21a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z" />
+      <path d="M18.5 3a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z" />
+    </svg>
+  )
+)
+BrainCircuitIcon.displayName = 'BrainCircuitIcon'
+
+export const ClockIcon = React.forwardRef<SVGSVGElement, IconProps>(
+  ({ className, size = defaultSize, ...props }, ref) => (
+    <svg
+      ref={ref}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      strokeWidth={defaultStroke}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={cn(iconBase, className)}
+      {...props}
+    >
+      <circle cx="12" cy="12" r="10" />
+      <polyline points="12 6 12 12 16 14" />
+    </svg>
+  )
+)
+ClockIcon.displayName = 'ClockIcon'
+
+export const UsersIcon = React.forwardRef<SVGSVGElement, IconProps>(
+  ({ className, size = defaultSize, ...props }, ref) => (
+    <svg
+      ref={ref}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      strokeWidth={defaultStroke}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={cn(iconBase, className)}
+      {...props}
+    >
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+    </svg>
+  )
+)
+UsersIcon.displayName = 'UsersIcon'
+
+export const CalculatorIcon = React.forwardRef<SVGSVGElement, IconProps>(
+  ({ className, size = defaultSize, ...props }, ref) => (
+    <svg
+      ref={ref}
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      strokeWidth={defaultStroke}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={cn(iconBase, className)}
+      {...props}
+    >
+      <rect width="16" height="20" x="4" y="2" rx="2" />
+      <line x1="8" x2="16" y1="6" y2="6" />
+      <line x1="16" x2="16" y1="14" y2="18" />
+      <path d="M16 10h.01" />
+      <path d="M12 10h.01" />
+      <path d="M8 10h.01" />
+      <path d="M12 14h.01" />
+      <path d="M8 14h.01" />
+      <path d="M12 18h.01" />
+      <path d="M8 18h.01" />
+    </svg>
+  )
+)
+CalculatorIcon.displayName = 'CalculatorIcon'

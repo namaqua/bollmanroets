@@ -1,11 +1,15 @@
 import { Link } from 'react-router-dom'
 import { Section } from '@/components/ui/section'
-import { H1, H2, H3, Body, Small } from '@/components/ui/typography'
+import { H1, H2, Body, Small } from '@/components/ui/typography'
 import { Button } from '@/components/ui/button'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Divider } from '@/components/ui/divider'
 import { ArrowRightIcon, CheckIcon } from '@/components/ui/icons'
 import { BrandName } from '@/components/ui/brand-name'
+import { TargetGroupGrid } from '@/components/ui/target-group-card'
+import { ComparisonGrid } from '@/components/ui/comparison-grid'
+import { ProofGrid } from '@/components/ui/proof-card'
+import { QuoteBox } from '@/components/ui/quote-box'
 import { useI18n } from '@/client/lib/i18n'
 import { SEO, WebPageSchema } from '@/components/seo'
 
@@ -37,18 +41,17 @@ export function HomePage() {
           />
         </div>
         <div className="relative">
-          <H1 className="mb-6 max-w-4xl">
-            <BrandName />
-            <br />
-            {t.home.strapline}
+          <Small className="text-brass-gold font-medium mb-4 block">
+            <BrandName /> | {t.home.strapline}
+          </Small>
+          <H1 className="mb-4 max-w-4xl">
+            {t.home.headline}
           </H1>
+          <Body className="max-w-2xl text-xl text-muted-foreground mb-4 font-medium">
+            {t.home.subheadline}
+          </Body>
           <Body className="max-w-2xl text-lg text-muted-foreground mb-8">
-            {t.home.heroText.split('. ').map((sentence, i, arr) => (
-              <span key={i}>
-                {sentence}{i < arr.length - 1 ? '.' : ''}
-                {i < arr.length - 1 && <br />}
-              </span>
-            ))}
+            {t.home.heroText}
           </Body>
           <div className="flex flex-wrap gap-4">
             <Button asChild size="lg">
@@ -115,29 +118,23 @@ export function HomePage() {
 
       <Divider variant="blueprint" className="mx-auto max-w-5xl" />
 
+      {/* Target Group Section */}
+      <Section>
+        <div className="text-center mb-12">
+          <Small className="text-brass-gold font-medium mb-4 block">
+            {t.home.targetGroup.label}
+          </Small>
+          <H2>{t.home.targetGroup.headline}</H2>
+        </div>
+        <TargetGroupGrid cards={t.home.targetGroup.cards} />
+      </Section>
+
+      <Divider variant="blueprint" className="mx-auto max-w-5xl" />
+
       {/* Comparison Section */}
       <Section className="bg-muted/30">
         <H2 className="mb-12 text-center">{t.home.comparison.title}</H2>
-        <div className="grid gap-8 md:grid-cols-3">
-          <div className="space-y-3">
-            <H3>{t.home.comparison.vsEnterprise.title}</H3>
-            <Body className="text-muted-foreground">
-              {t.home.comparison.vsEnterprise.description}
-            </Body>
-          </div>
-          <div className="space-y-3">
-            <H3>{t.home.comparison.vsOffshore.title}</H3>
-            <Body className="text-muted-foreground">
-              {t.home.comparison.vsOffshore.description}
-            </Body>
-          </div>
-          <div className="space-y-3">
-            <H3>{t.home.comparison.vsDiy.title}</H3>
-            <Body className="text-muted-foreground">
-              {t.home.comparison.vsDiy.description}
-            </Body>
-          </div>
-        </div>
+        <ComparisonGrid columns={t.home.comparison.columns} />
       </Section>
 
       {/* Solutions Teaser */}
@@ -153,6 +150,26 @@ export function HomePage() {
               <ArrowRightIcon size={18} />
             </Link>
           </Button>
+        </div>
+      </Section>
+
+      <Divider variant="blueprint" className="mx-auto max-w-5xl" />
+
+      {/* Projects Section */}
+      <Section>
+        <div className="text-center mb-12">
+          <Small className="text-brass-gold font-medium mb-4 block">
+            {t.home.projects.label}
+          </Small>
+          <H2>{t.home.projects.headline}</H2>
+        </div>
+        <ProofGrid items={t.home.projects.items} className="mb-12" />
+        <div className="max-w-2xl mx-auto">
+          <QuoteBox
+            quote={t.home.projects.quote.text}
+            attribution={t.home.projects.quote.attribution}
+            variant="centered"
+          />
         </div>
       </Section>
 

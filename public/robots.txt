@@ -1,4 +1,4 @@
-# Bollman & Roets - robots.txt
+# Bollman + Roets - robots.txt
 User-agent: *
 Allow: /
 

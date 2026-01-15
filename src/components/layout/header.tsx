@@ -36,11 +36,11 @@ export function Header({ className }: HeaderProps) {
         <div className="flex h-16 items-center justify-between">
           <Link
             to={getLocalizedPath('/')}
-            className="flex items-center gap-2 text-lg font-semibold tracking-tight transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md px-1"
+            className="flex items-center gap-1 text-xl font-bold tracking-tight transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md px-1"
           >
-            <span className="text-midnight-navy">Bollman</span>
-            <span className="text-brass-gold">&</span>
-            <span className="text-midnight-navy">Roets</span>
+            <span className="text-midnight-navy">B</span>
+            <span className="text-brass-gold">+</span>
+            <span className="text-midnight-navy">R</span>
           </Link>
 
           <DesktopNav />
