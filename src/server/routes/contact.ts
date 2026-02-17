@@ -40,8 +40,8 @@ const interestValueMap: Record<string, string> = {
 
 // Contact form schema with tracking fields
 const contactSchema = z.object({
-  // Honeypot field - must be empty (bots will fill it)
-  website: z.string().max(0).optional().default(''),
+  // Honeypot field - allow any value through validation; handler rejects silently
+  website: z.string().optional().default(''),
 
   // Required form fields
   name: z.string().min(1, 'Name is required').max(100),
