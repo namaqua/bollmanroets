@@ -26,6 +26,7 @@ const interestValueMap: Record<string, string> = {
   discoveryDay: 'discovery_day',
   pilot: 'pilot_project',
   partnership: 'partnership_request',
+  investment: 'investment_inquiry',
   general: 'general_question',
 }
 
@@ -36,7 +37,7 @@ const contactSchema = z.object({
   company: z.string().min(1, 'Company is required').max(100),
   email: z.string().email('Invalid email address'),
   phone: z.string().max(30).optional(),
-  interest: z.enum(['discoveryDay', 'pilot', 'partnership', 'general']),
+  interest: z.enum(['discoveryDay', 'pilot', 'partnership', 'investment', 'general']),
   message: z.string().min(1, 'Message is required').max(5000),
   privacy: z.boolean().refine((val) => val === true, 'Privacy consent required'),
   marketingConsent: z.boolean().optional(),
@@ -190,6 +191,7 @@ const interestLabels: Record<string, { de: string; en: string }> = {
   discoveryDay: { de: 'Discovery Day', en: 'Discovery Day' },
   pilot: { de: 'Pilotprojekt', en: 'Pilot Project' },
   partnership: { de: 'Partnerschaftsanfrage', en: 'Partnership Inquiry' },
+  investment: { de: 'Investitionsanfrage', en: 'Investment Inquiry' },
   general: { de: 'Allgemeine Frage', en: 'General Question' },
 }
 
