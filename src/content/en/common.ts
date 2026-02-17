@@ -214,7 +214,7 @@ export const en = {
       ],
       quote: {
         text: 'Finally software that fits our processes – not the other way around.',
-        attribution: 'Managing Director, Machinery',
+        attribution: 'Managing Director, Machinery Manufacturing',
       },
     },
     solutions: {
