@@ -6,5 +6,3 @@ export {
   WebPageSchema,
   ServiceSchema
 } from './structured-data'
-export { PartnerProgramSchema } from './partner-program-schema'
-export { InvestorRelationsSchema } from './investor-relations-schema'
