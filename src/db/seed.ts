@@ -5,8 +5,13 @@ import { db } from './index'
 import { examples } from './schema'
 
 async function seed() {
+  if (!db) {
+    console.error('DATABASE_URL not set — cannot seed')
+    process.exit(1)
+  }
+
   console.log('Seeding database...')
-  
+
   // Clear existing data
   await db.delete(examples)
   
