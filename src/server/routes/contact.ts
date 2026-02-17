@@ -8,6 +8,16 @@ const rateLimitStore = new Map<string, { count: number; resetAt: number }>()
 const RATE_LIMIT_WINDOW = 60 * 60 * 1000 // 1 hour
 const RATE_LIMIT_MAX = 5 // 5 requests per hour
 
+// Cleanup expired rate limit entries every 10 minutes
+setInterval(() => {
+  const now = Date.now()
+  for (const [ip, record] of rateLimitStore) {
+    if (record.resetAt < now) {
+      rateLimitStore.delete(ip)
+    }
+  }
+}, 10 * 60 * 1000)
+
 // Web Leads API configuration
 const WEBLEADS_API_URL = 'https://dogfood.luluwaldhund.de/api/public/web-leads'
 
@@ -219,17 +229,12 @@ contact.post(
     const clientIp = c.req.header('x-real-ip') || 'unknown'
     const userAgent = c.req.header('user-agent') || ''
 
-    // Log submission locally
+    // Log submission metadata (no PII for DSGVO compliance)
     console.log('Contact form submission:', {
       timestamp: new Date().toISOString(),
-      name: data.name,
-      company: data.company,
-      email: data.email,
-      phone: data.phone || 'not provided',
       interest: interestLabels[data.interest]?.en || data.interest,
       messageLength: data.message.length,
       hasTracking: !!(data.sessionId || data.utmSource),
-      clientIp,
     })
 
     // Submit to Web Leads API (graceful degradation - don't fail user request if API fails)
