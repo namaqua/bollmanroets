@@ -23,9 +23,7 @@ export function Footer({ className }: FooterProps) {
         <div className="py-8 lg:py-12">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-1 text-lg font-bold">
-              <span className="text-midnight-navy">B</span>
-              <span className="text-brass-gold">+</span>
-              <span className="text-midnight-navy">R</span>
+              <span className="font-brand font-semibold">b&amp;r</span>
             </div>
 
             <nav aria-label="Footer navigation">

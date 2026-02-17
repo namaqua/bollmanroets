@@ -38,9 +38,7 @@ export function Header({ className }: HeaderProps) {
             to={getLocalizedPath('/')}
             className="flex items-center gap-1 text-xl font-bold tracking-tight transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md px-1"
           >
-            <span className="text-midnight-navy">B</span>
-            <span className="text-brass-gold">+</span>
-            <span className="text-midnight-navy">R</span>
+            <span className="font-brand font-semibold">b&amp;r</span>
           </Link>
 
           <DesktopNav />

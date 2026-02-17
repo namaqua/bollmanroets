@@ -19,6 +19,7 @@ export default {
       fontFamily: {
         sans: ['IBM Plex Sans', 'system-ui', 'sans-serif'],
         mono: ['IBM Plex Mono', 'monospace'],
+        brand: ['Outfit', 'sans-serif'],
       },
       spacing: {
         '18': '4.5rem',

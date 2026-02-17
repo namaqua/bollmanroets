@@ -4,7 +4,7 @@ import { H1, H2, Body, Small } from '@/components/ui/typography'
 import { Button } from '@/components/ui/button'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Divider } from '@/components/ui/divider'
-import { ArrowRightIcon, CheckIcon } from '@/components/ui/icons'
+import { ArrowRightIcon } from '@/components/ui/icons'
 import { BrandName } from '@/components/ui/brand-name'
 import { TargetGroupGrid } from '@/components/ui/target-group-card'
 import { ComparisonGrid } from '@/components/ui/comparison-grid'
@@ -74,9 +74,6 @@ export function HomePage() {
         <div className="grid gap-8 md:grid-cols-3">
           <Card>
             <CardHeader>
-              <div className="mb-2 flex h-10 w-10 items-center justify-center rounded border border-primary/20 bg-primary/5">
-                <CheckIcon size={20} className="text-primary" />
-              </div>
               <CardTitle>{t.home.valueProps.yourCode.title}</CardTitle>
             </CardHeader>
             <CardContent>
@@ -88,9 +85,6 @@ export function HomePage() {
 
           <Card>
             <CardHeader>
-              <div className="mb-2 flex h-10 w-10 items-center justify-center rounded border border-primary/20 bg-primary/5">
-                <ArrowRightIcon size={20} className="text-primary" />
-              </div>
               <CardTitle>{t.home.valueProps.fastDelivery.title}</CardTitle>
             </CardHeader>
             <CardContent>
@@ -102,9 +96,6 @@ export function HomePage() {
 
           <Card>
             <CardHeader>
-              <div className="mb-2 flex h-10 w-10 items-center justify-center rounded border border-primary/20 bg-primary/5">
-                <CheckIcon size={20} className="text-primary" />
-              </div>
               <CardTitle>{t.home.valueProps.enterpriseQuality.title}</CardTitle>
             </CardHeader>
             <CardContent>

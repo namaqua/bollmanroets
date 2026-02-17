@@ -101,7 +101,7 @@ export const de = {
       },
       fastDelivery: {
         title: 'Schnelle Lieferung',
-        description: '6-12 Wochen statt 12-18 Monate. KI-beschleunigte Entwicklung ohne Qualitätsverlust.',
+        description: '6-12 Wochen statt 12-18 Monate. Beschleunigte Entwicklung ohne Qualitätsverlust.',
       },
       enterpriseQuality: {
         title: 'Enterprise-Qualität',
@@ -173,10 +173,10 @@ export const de = {
           title: 'Bollman + Roets',
           highlight: true,
           points: [
-            '2-4 Wochen Lieferung',
-            '€50k-€150k Festpreis',
-            'Sie besitzen den Code',
-            'On-Premise oder DE-Cloud',
+            'Lieferung in Wochen, nicht Monaten',
+            'Wertorientiert & erschwinglich',
+            'Ihr Code, keine Vendor-Abhängigkeit',
+            'On-Premise oder souveräne DE-Cloud',
           ],
         },
       ],
@@ -315,9 +315,8 @@ export const de = {
     },
     directContact: {
       title: 'Direkter Kontakt',
-      email: 'kontakt@bollman-roets.de',
-      phone: '+49 (0) 123 456 789',
-      address: 'Musterstraße 1, 12345 Berlin',
+      email: 'info@bollman-roets.de',
+      phone: '0160 48 47 9 48',
     },
   },
   partner: {

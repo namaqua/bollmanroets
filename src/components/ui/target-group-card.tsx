@@ -34,8 +34,8 @@ export function TargetGroupCard({
 
   return (
     <Card className={cn('h-full transition-all hover:border-brass-gold/50 hover:shadow-md', className)}>
-      <CardContent className="p-6">
-        <div className="w-12 h-12 rounded-lg bg-brass-gold/10 flex items-center justify-center mb-4">
+      <CardContent className="p-6 text-center">
+        <div className="w-12 h-12 rounded-lg bg-brass-gold/10 flex items-center justify-center mb-4 mx-auto">
           <IconComponent size={24} className="text-brass-gold" />
         </div>
         <H3 className="text-lg mb-2">{title}</H3>

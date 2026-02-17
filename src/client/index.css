@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* IBM Plex Sans & Mono from Google Fonts - with display=swap for better performance */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Outfit:wght@600&display=swap');
 
 /* Prefers reduced motion - respect user preferences */
 @media (prefers-reduced-motion: reduce) {

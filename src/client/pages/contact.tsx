@@ -346,12 +346,6 @@ export function ContactPage() {
                     </a>
                   </Body>
                 </div>
-                <div>
-                  <Small className="text-muted-foreground">
-                    {locale === 'de' ? 'Adresse' : 'Address'}
-                  </Small>
-                  <Body className="text-sm">{t.contact.directContact.address}</Body>
-                </div>
               </div>
             </div>
           </div>

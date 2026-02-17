@@ -4,7 +4,7 @@ import { H1, H2, H3, Body } from '@/components/ui/typography'
 import { Button } from '@/components/ui/button'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Divider } from '@/components/ui/divider'
-import { ArrowRightIcon, CheckIcon } from '@/components/ui/icons'
+import { ArrowRightIcon } from '@/components/ui/icons'
 import { useI18n } from '@/client/lib/i18n'
 import { SEO, BreadcrumbSchema, WebPageSchema } from '@/components/seo'
 
@@ -110,9 +110,6 @@ export function AboutPage() {
           {values.map((value) => (
             <Card key={value.title}>
               <CardHeader>
-                <div className="mb-2 flex h-8 w-8 items-center justify-center rounded border border-primary/20 bg-primary/5">
-                  <CheckIcon size={16} className="text-primary" />
-                </div>
                 <CardTitle>{value.title}</CardTitle>
               </CardHeader>
               <CardContent>

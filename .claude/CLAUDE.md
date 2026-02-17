@@ -17,8 +17,8 @@ When a conversation begins (you see "Session start" in the first message), autom
    Present: status, current_focus, decisions, blockers, next_steps
 
 3. **Start Dev Servers** (in background)
-   - Backend: `npm run dev` (http://localhost:3000)
-   - Frontend: `npm run dev:client` (http://localhost:5173)
+   - Backend: `npm run dev` (http://localhost:3004)
+   - Frontend: `npm run dev:client` (http://localhost:5177)
 
 4. **Confirm Direction**
    Ask: "Continue from here, or start fresh?"

@@ -143,7 +143,7 @@ export interface Translations {
     title: string
     intro: string
     discoveryDay: { title: string; description: string; includes: string }
-    directContact: { title: string; email: string; phone: string; address: string }
+    directContact: { title: string; email: string; phone: string }
   }
   partner: {
     title: string
