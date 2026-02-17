@@ -7,7 +7,7 @@ export const en = {
     },
     about: {
       title: 'About Us',
-      description: 'Bollman + Roets: 30+ years of enterprise experience. AI-accelerated development of custom software for German SMEs.',
+      description: 'Bollmann & Roets: 30+ years of enterprise experience. AI-accelerated development of custom software for German SMEs.',
     },
     solutions: {
       title: 'Solutions',
@@ -15,14 +15,14 @@ export const en = {
     },
     contact: {
       title: 'Contact',
-      description: 'Contact Bollman + Roets for your software project. Discovery Day including requirements analysis and implementation plan.',
+      description: 'Contact Bollmann & Roets for your software project. Discovery Day including requirements analysis and implementation plan.',
     },
     partner: {
-      title: 'Partner Program | Bollman + Roets',
-      description: 'Become a Bollman + Roets partner. 30% commission on build and recurring revenue. Ideal for consultants and advisors.',
+      title: 'Partner Program | Bollmann & Roets',
+      description: 'Become a Bollmann & Roets partner. 30% commission on build and recurring revenue. Ideal for consultants and advisors.',
     },
     investor: {
-      title: 'For Investors | Bollman + Roets',
+      title: 'For Investors | Bollmann & Roets',
       description: 'AI-Native Software Manufacturing for German SMEs. 60-85% gross margin, scalable partner expansion.',
     },
   },
@@ -75,7 +75,7 @@ export const en = {
   footer: {
     imprint: 'Imprint',
     privacy: 'Privacy',
-    copyright: '© 2025 Bollman + Roets. All rights reserved.',
+    copyright: '© 2026 Bollmann & Roets. All rights reserved.',
   },
   language: {
     switch: 'Switch language',
@@ -94,7 +94,7 @@ export const en = {
     subheadline: 'Faster than SaaS. Cheaper than custom development.',
     heroText: 'We empower the German Mittelstand to take bold actions. Secure your future with tailored code and solution engineering. On-premise, German cloud, or your infrastructure of choice.',
     valueProps: {
-      title: 'Why Bollman + Roets',
+      title: 'Why Bollmann & Roets',
       yourCode: {
         title: 'Your Code',
         description: 'Full ownership of your software. No vendor lock-in, no recurring license fees.',
@@ -170,7 +170,7 @@ export const en = {
           ],
         },
         {
-          title: 'Bollman + Roets',
+          title: 'Bollmann & Roets',
           highlight: true,
           points: [
             'Delivery in weeks, not months',
@@ -406,7 +406,7 @@ export const en = {
       headline: 'AI-Native Software Manufacturing for German SMEs',
       subheadline: 'Enterprise software in 2-4 weeks, not months. You own the code.',
       entityBlock: {
-        company: 'Bollman + Roets',
+        company: 'Bollmann & Roets',
         model: 'AI-Native Software Manufacturing',
         aiGeneration: '90% AI-generated (10% human validation)',
         delivery: '2-4 weeks (vs. 6-12 month industry average)',

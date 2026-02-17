@@ -133,7 +133,7 @@ async function submitToWebLeads(
       headers: {
         'Content-Type': 'application/json',
         'X-API-Key': apiKey,
-        'Origin': 'https://br.luluwaldhund.de',
+        'Origin': 'https://bollmann-roets.de',
         'X-Forwarded-For': clientIp,
         'User-Agent': userAgent,
       },
@@ -244,7 +244,7 @@ contact.post(
 
     return c.json({
       success: true,
-      message: 'Thank you for your message. We will respond within one business day.',
+      message: 'Vielen Dank für Ihre Nachricht. Wir melden uns innerhalb eines Werktags.',
     })
   }
 )

@@ -9,7 +9,7 @@ const app = new Hono()
 // Middleware
 app.use('*', logger())
 app.use('*', cors({
-  origin: ['http://localhost:5177', 'https://br.luluwaldhund.de', 'https://bollman-roets.de'],
+  origin: ['http://localhost:5177', 'https://br.luluwaldhund.de', 'https://bollmann-roets.de', 'https://www.bollmann-roets.de'],
   allowMethods: ['GET', 'POST', 'OPTIONS'],
   allowHeaders: ['Content-Type'],
   maxAge: 86400,

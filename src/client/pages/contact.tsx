@@ -24,7 +24,7 @@ import { getFormTrackingData } from '@/client/lib/use-tracking'
 import { cn } from '@/lib/utils'
 import { SEO, BreadcrumbSchema, WebPageSchema } from '@/components/seo'
 
-const SITE_URL = 'https://br.luluwaldhund.de'
+const SITE_URL = 'https://bollmann-roets.de'
 
 const createContactSchema = (t: ReturnType<typeof useI18n>['t']) =>
   z.object({

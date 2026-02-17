@@ -1,20 +1,21 @@
 #!/bin/bash
-# Bollmann & Roets - Deployment Script
-# Usage: ./deploy/deploy.sh
+# Bollmann & Roets - Production Deployment Script (IONOS)
+# Usage: ./deploy/deploy-prod.sh
 
 set -e
 
 echo "========================================"
-echo "Deploying Bollmann & Roets"
+echo "Deploying Bollmann & Roets to PRODUCTION"
 echo "========================================"
 
 # Configuration
 REMOTE_USER="root"
-REMOTE_HOST="104.248.247.65"
+REMOTE_HOST="85.215.193.34"
 SSH_KEY="~/.ssh/id_ed25519_server"
-REMOTE_PATH="/var/www/br.luluwaldhund.de"
+REMOTE_PATH="/var/www/bollman-roets.de"
 PM2_APP_NAME="bollman-roets"
-DOMAIN="br.luluwaldhund.de"
+DOMAIN="bollmann-roets.de"
+BUN="/root/.bun/bin/bun"
 
 # Colors
 RED='\033[0;31m'
@@ -86,7 +87,7 @@ echo ""
 info "Step 5: Installing dependencies on server..."
 # ------------------------------------------
 
-ssh -i ${SSH_KEY} ${REMOTE_USER}@${REMOTE_HOST} "cd ${REMOTE_PATH} && npm install --production"
+ssh -i ${SSH_KEY} ${REMOTE_USER}@${REMOTE_HOST} "cd ${REMOTE_PATH} && ${BUN} install --production"
 
 info "Dependencies installed"
 
@@ -116,6 +117,6 @@ fi
 
 echo ""
 echo "========================================"
-info "Deployment complete!"
+info "Production deployment complete!"
 echo "Site: https://${DOMAIN}"
 echo "========================================"

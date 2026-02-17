@@ -7,7 +7,7 @@ module.exports = {
       name: 'bollman-roets',
       script: './dist/server/index.js',
       interpreter: '/root/.bun/bin/bun',
-      cwd: '/var/www/br.luluwaldhund.de',
+      cwd: '/var/www/bollman-roets.de',
       instances: 1,
       exec_mode: 'fork',
       autorestart: true,

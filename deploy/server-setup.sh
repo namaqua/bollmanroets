@@ -1,5 +1,5 @@
 #!/bin/bash
-# Bollman + Roets - Server Setup Script
+# Bollmann & Roets - Server Setup Script
 # Run this on the server ONCE before first deployment
 # Usage: ssh root@104.248.247.65 'bash -s' < deploy/server-setup.sh
 

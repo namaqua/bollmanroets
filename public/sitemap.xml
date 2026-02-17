@@ -4,74 +4,74 @@
 
   <!-- German Pages (Primary) -->
   <url>
-    <loc>https://bollman-roets.de/</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://bollman-roets.de/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bollman-roets.de/en"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bollman-roets.de/"/>
+    <loc>https://bollmann-roets.de/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://bollmann-roets.de/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bollmann-roets.de/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bollmann-roets.de/"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://bollman-roets.de/uber-uns</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://bollman-roets.de/uber-uns"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bollman-roets.de/en/about"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bollman-roets.de/uber-uns"/>
+    <loc>https://bollmann-roets.de/uber-uns</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://bollmann-roets.de/uber-uns"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bollmann-roets.de/en/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bollmann-roets.de/uber-uns"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://bollman-roets.de/losungen</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://bollman-roets.de/losungen"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bollman-roets.de/en/solutions"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bollman-roets.de/losungen"/>
+    <loc>https://bollmann-roets.de/losungen</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://bollmann-roets.de/losungen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bollmann-roets.de/en/solutions"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bollmann-roets.de/losungen"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://bollman-roets.de/kontakt</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://bollman-roets.de/kontakt"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bollman-roets.de/en/contact"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bollman-roets.de/kontakt"/>
+    <loc>https://bollmann-roets.de/kontakt</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://bollmann-roets.de/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bollmann-roets.de/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bollmann-roets.de/kontakt"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- English Pages -->
   <url>
-    <loc>https://bollman-roets.de/en</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://bollman-roets.de/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bollman-roets.de/en"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bollman-roets.de/"/>
+    <loc>https://bollmann-roets.de/en</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://bollmann-roets.de/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bollmann-roets.de/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bollmann-roets.de/"/>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://bollman-roets.de/en/about</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://bollman-roets.de/uber-uns"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bollman-roets.de/en/about"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bollman-roets.de/uber-uns"/>
+    <loc>https://bollmann-roets.de/en/about</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://bollmann-roets.de/uber-uns"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bollmann-roets.de/en/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bollmann-roets.de/uber-uns"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://bollman-roets.de/en/solutions</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://bollman-roets.de/losungen"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bollman-roets.de/en/solutions"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bollman-roets.de/losungen"/>
+    <loc>https://bollmann-roets.de/en/solutions</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://bollmann-roets.de/losungen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bollmann-roets.de/en/solutions"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bollmann-roets.de/losungen"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://bollman-roets.de/en/contact</loc>
-    <xhtml:link rel="alternate" hreflang="de" href="https://bollman-roets.de/kontakt"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://bollman-roets.de/en/contact"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://bollman-roets.de/kontakt"/>
+    <loc>https://bollmann-roets.de/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://bollmann-roets.de/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bollmann-roets.de/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bollmann-roets.de/kontakt"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

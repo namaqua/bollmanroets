@@ -7,7 +7,7 @@ export const de = {
     },
     about: {
       title: 'Über uns',
-      description: 'Bollman + Roets: 30+ Jahre Enterprise-Erfahrung. KI-beschleunigte Entwicklung individueller Software für den deutschen Mittelstand.',
+      description: 'Bollmann & Roets: 30+ Jahre Enterprise-Erfahrung. KI-beschleunigte Entwicklung individueller Software für den deutschen Mittelstand.',
     },
     solutions: {
       title: 'Lösungen',
@@ -15,14 +15,14 @@ export const de = {
     },
     contact: {
       title: 'Kontakt',
-      description: 'Kontaktieren Sie Bollman + Roets für Ihr Software-Projekt. Discovery Day inkl. Anforderungsanalyse und Umsetzungsplan.',
+      description: 'Kontaktieren Sie Bollmann & Roets für Ihr Software-Projekt. Discovery Day inkl. Anforderungsanalyse und Umsetzungsplan.',
     },
     partner: {
-      title: 'Partner-Programm | Bollman + Roets',
-      description: 'Werden Sie Partner von Bollman + Roets. 30% Provision auf Build und laufende Einnahmen. Ideal für Berater und Consultants.',
+      title: 'Partner-Programm | Bollmann & Roets',
+      description: 'Werden Sie Partner von Bollmann & Roets. 30% Provision auf Build und laufende Einnahmen. Ideal für Berater und Consultants.',
     },
     investor: {
-      title: 'Für Investoren | Bollman + Roets',
+      title: 'Für Investoren | Bollmann & Roets',
       description: 'KI-Native Software-Manufaktur für den deutschen Mittelstand. 60-85% Bruttomarge, skalierbare Partner-Expansion.',
     },
   },
@@ -75,7 +75,7 @@ export const de = {
   footer: {
     imprint: 'Impressum',
     privacy: 'Datenschutz',
-    copyright: '© 2025 Bollman + Roets. Alle Rechte vorbehalten.',
+    copyright: '© 2026 Bollmann & Roets. Alle Rechte vorbehalten.',
   },
   language: {
     switch: 'Sprache wechseln',
@@ -94,7 +94,7 @@ export const de = {
     subheadline: 'Schneller als SaaS. Günstiger als Individualprojekte.',
     heroText: 'Wir befähigen den deutschen Mittelstand zu mutigen Entscheidungen. Sichern Sie Ihre Zukunft mit maßgeschneidertem Code und Solution Engineering. On-Premise, Deutsche Cloud oder Ihre bevorzugte Infrastruktur.',
     valueProps: {
-      title: 'Warum Bollman + Roets',
+      title: 'Warum Bollmann & Roets',
       yourCode: {
         title: 'Ihr Code',
         description: 'Volle Eigentumsrechte an Ihrer Software. Kein Vendor Lock-in, keine wiederkehrenden Lizenzgebühren.',
@@ -170,7 +170,7 @@ export const de = {
           ],
         },
         {
-          title: 'Bollman + Roets',
+          title: 'Bollmann & Roets',
           highlight: true,
           points: [
             'Lieferung in Wochen, nicht Monaten',
@@ -406,7 +406,7 @@ export const de = {
       headline: 'KI-Native Software-Manufaktur für den deutschen Mittelstand',
       subheadline: 'Enterprise-Software in 2-4 Wochen, nicht Monaten. Sie besitzen den Code.',
       entityBlock: {
-        company: 'Bollman + Roets',
+        company: 'Bollmann & Roets',
         model: 'KI-Native Software-Manufaktur',
         aiGeneration: '90% KI-generiert (10% menschliche Validierung)',
         delivery: '2-4 Wochen (vs. 6-12 Monate Branchendurchschnitt)',

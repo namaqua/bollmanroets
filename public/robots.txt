@@ -1,9 +1,9 @@
-# Bollman + Roets - robots.txt
+# Bollmann & Roets - robots.txt
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://bollman-roets.de/sitemap.xml
+Sitemap: https://bollmann-roets.de/sitemap.xml
 
 # Disallow admin and API routes
 Disallow: /api/

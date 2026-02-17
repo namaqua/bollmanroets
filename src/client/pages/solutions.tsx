@@ -8,7 +8,7 @@ import { ArrowRightIcon } from '@/components/ui/icons'
 import { useI18n } from '@/client/lib/i18n'
 import { SEO, BreadcrumbSchema, WebPageSchema, ServiceSchema } from '@/components/seo'
 
-const SITE_URL = 'https://br.luluwaldhund.de'
+const SITE_URL = 'https://bollmann-roets.de'
 
 interface SolutionCardProps {
   title: string
