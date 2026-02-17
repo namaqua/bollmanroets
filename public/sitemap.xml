@@ -39,6 +39,24 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://bollmann-roets.de/impressum</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://bollmann-roets.de/impressum"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bollmann-roets.de/en/legal-notice"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bollmann-roets.de/impressum"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://bollmann-roets.de/datenschutz</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://bollmann-roets.de/datenschutz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bollmann-roets.de/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bollmann-roets.de/datenschutz"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
   <!-- English Pages -->
   <url>
     <loc>https://bollmann-roets.de/en</loc>
@@ -74,6 +92,24 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://bollmann-roets.de/kontakt"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://bollmann-roets.de/en/legal-notice</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://bollmann-roets.de/impressum"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bollmann-roets.de/en/legal-notice"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bollmann-roets.de/impressum"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://bollmann-roets.de/en/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://bollmann-roets.de/datenschutz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bollmann-roets.de/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bollmann-roets.de/datenschutz"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 
 </urlset>

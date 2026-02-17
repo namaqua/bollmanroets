@@ -9,6 +9,8 @@ import {
   AboutPage,
   SolutionsPage,
   ContactPage,
+  ImpressumPage,
+  DatenschutzPage,
   NotFoundPage,
 } from '@/client/pages'
 
@@ -28,12 +30,16 @@ function AppRoutes() {
         <Route path="/uber-uns" element={<AboutPage />} />
         <Route path="/losungen" element={<SolutionsPage />} />
         <Route path="/kontakt" element={<ContactPage />} />
+        <Route path="/impressum" element={<ImpressumPage />} />
+        <Route path="/datenschutz" element={<DatenschutzPage />} />
 
         {/* English routes */}
         <Route path="/en" element={<HomePage />} />
         <Route path="/en/about" element={<AboutPage />} />
         <Route path="/en/solutions" element={<SolutionsPage />} />
         <Route path="/en/contact" element={<ContactPage />} />
+        <Route path="/en/legal-notice" element={<ImpressumPage />} />
+        <Route path="/en/privacy" element={<DatenschutzPage />} />
 
         {/* 404 */}
         <Route path="*" element={<NotFoundPage />} />

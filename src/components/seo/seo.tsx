@@ -43,6 +43,8 @@ export function SEO({
           '/about': '/uber-uns',
           '/solutions': '/losungen',
           '/contact': '/kontakt',
+          '/legal-notice': '/impressum',
+          '/privacy': '/datenschutz',
         }
         return `${SITE_URL}${pathMap[dePath] || dePath}`
       }
@@ -57,6 +59,8 @@ export function SEO({
         '/uber-uns': '/en/about',
         '/losungen': '/en/solutions',
         '/kontakt': '/en/contact',
+        '/impressum': '/en/legal-notice',
+        '/datenschutz': '/en/privacy',
         '/': '/en',
       }
       return `${SITE_URL}${pathMap[path] || `/en${path}`}`

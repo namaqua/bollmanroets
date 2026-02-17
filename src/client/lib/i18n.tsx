@@ -24,6 +24,10 @@ const routeMap: Record<string, { de: string; en: string }> = {
   'solutions': { de: 'losungen', en: 'solutions' },
   'kontakt': { de: 'kontakt', en: 'contact' },
   'contact': { de: 'kontakt', en: 'contact' },
+  'impressum': { de: 'impressum', en: 'legal-notice' },
+  'legal-notice': { de: 'impressum', en: 'legal-notice' },
+  'datenschutz': { de: 'datenschutz', en: 'privacy' },
+  'privacy': { de: 'datenschutz', en: 'privacy' },
 }
 
 interface I18nContextValue {

@@ -12,6 +12,8 @@ export interface Translations {
     contact: { title: string; description: string }
     partner: { title: string; description: string }
     investor: { title: string; description: string }
+    imprint: { title: string; description: string }
+    privacy: { title: string; description: string }
   }
   nav: {
     home: string
@@ -144,6 +146,16 @@ export interface Translations {
     intro: string
     discoveryDay: { title: string; description: string; includes: string }
     directContact: { title: string; email: string; phone: string }
+  }
+  imprint: {
+    title: string
+    intro: string
+    sections: readonly { heading: string; content: string }[]
+  }
+  privacy: {
+    title: string
+    intro: string
+    sections: readonly { heading: string; content: string }[]
   }
   partner: {
     title: string

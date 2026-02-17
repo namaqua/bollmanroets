@@ -25,6 +25,14 @@ export const de = {
       title: 'Für Investoren | Bollmann & Roets',
       description: 'KI-Native Software-Manufaktur für den deutschen Mittelstand. 60-85% Bruttomarge, skalierbare Partner-Expansion.',
     },
+    imprint: {
+      title: 'Impressum',
+      description: 'Impressum und rechtliche Angaben der Bollmann & Roets.',
+    },
+    privacy: {
+      title: 'Datenschutzerklärung',
+      description: 'Datenschutzerklärung der Bollmann & Roets.',
+    },
   },
   nav: {
     home: 'Startseite',
@@ -318,6 +326,70 @@ export const de = {
       email: 'info@bollman-roets.de',
       phone: '0160 48 47 9 48',
     },
+  },
+  imprint: {
+    title: 'Impressum',
+    intro: 'Angaben gemäß § 5 TMG',
+    sections: [
+      {
+        heading: 'Angaben gemäß § 5 TMG',
+        content: 'Bollmann & Roets\nSoftware-Manufaktur\n\nE-Mail: info@bollman-roets.de\nTelefon: 0160 48 47 9 48',
+      },
+      {
+        heading: 'Vertreten durch',
+        content: 'Colin Roets',
+      },
+      {
+        heading: 'Kontakt',
+        content: 'E-Mail: info@bollman-roets.de\nTelefon: 0160 48 47 9 48',
+      },
+      {
+        heading: 'Haftung für Inhalte',
+        content: 'Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.',
+      },
+      {
+        heading: 'Haftung für Links',
+        content: 'Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.',
+      },
+      {
+        heading: 'Urheberrecht',
+        content: 'Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.',
+      },
+      {
+        heading: 'Streitschlichtung',
+        content: 'Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: https://ec.europa.eu/consumers/odr/. Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.',
+      },
+    ],
+  },
+  privacy: {
+    title: 'Datenschutzerklärung',
+    intro: 'Wir nehmen den Schutz Ihrer persönlichen Daten sehr ernst.',
+    sections: [
+      {
+        heading: 'Verantwortlicher',
+        content: 'Verantwortlich für die Datenverarbeitung auf dieser Website:\n\nBollmann & Roets\nE-Mail: info@bollman-roets.de\nTelefon: 0160 48 47 9 48',
+      },
+      {
+        heading: 'Datenerfassung auf dieser Website',
+        content: 'Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter. Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).',
+      },
+      {
+        heading: 'Server-Log-Files',
+        content: 'Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Files, die Ihr Browser automatisch an uns übermittelt. Dies sind: Browsertyp und Browserversion, verwendetes Betriebssystem, Referrer URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage und IP-Adresse. Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.',
+      },
+      {
+        heading: 'Cookies',
+        content: 'Diese Website verwendet derzeit keine Cookies.',
+      },
+      {
+        heading: 'Hosting',
+        content: 'Diese Website wird bei IONOS gehostet. Details entnehmen Sie der Datenschutzerklärung von IONOS: https://www.ionos.de/terms-gtc/datenschutzerklaerung/',
+      },
+      {
+        heading: 'Ihre Rechte',
+        content: 'Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit an uns wenden. Sie haben ferner das Recht auf Einschränkung der Verarbeitung, das Recht auf Datenübertragbarkeit sowie das Recht auf Beschwerde bei der zuständigen Aufsichtsbehörde.',
+      },
+    ],
   },
   partner: {
     title: 'Partner-Programm',

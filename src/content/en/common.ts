@@ -25,6 +25,14 @@ export const en = {
       title: 'For Investors | Bollmann & Roets',
       description: 'AI-Native Software Manufacturing for German SMEs. 60-85% gross margin, scalable partner expansion.',
     },
+    imprint: {
+      title: 'Legal Notice',
+      description: 'Legal notice and company information for Bollmann & Roets.',
+    },
+    privacy: {
+      title: 'Privacy Policy',
+      description: 'Privacy policy of Bollmann & Roets.',
+    },
   },
   nav: {
     home: 'Home',
@@ -73,8 +81,8 @@ export const en = {
     backToHome: 'Back to home',
   },
   footer: {
-    imprint: 'Imprint',
-    privacy: 'Privacy',
+    imprint: 'Legal Notice',
+    privacy: 'Privacy Policy',
     copyright: '© 2026 Bollmann & Roets. All rights reserved.',
   },
   language: {
@@ -318,6 +326,70 @@ export const en = {
       email: 'info@bollman-roets.de',
       phone: '0160 48 47 9 48',
     },
+  },
+  imprint: {
+    title: 'Legal Notice',
+    intro: 'Information in accordance with § 5 TMG',
+    sections: [
+      {
+        heading: 'Information in accordance with § 5 TMG',
+        content: 'Bollmann & Roets\nSoftware Manufacturing\n\nEmail: info@bollman-roets.de\nPhone: 0160 48 47 9 48',
+      },
+      {
+        heading: 'Represented by',
+        content: 'Colin Roets',
+      },
+      {
+        heading: 'Contact',
+        content: 'Email: info@bollman-roets.de\nPhone: 0160 48 47 9 48',
+      },
+      {
+        heading: 'Liability for Content',
+        content: 'As a service provider, we are responsible for our own content on these pages in accordance with general legislation pursuant to § 7 (1) TMG. According to §§ 8 to 10 TMG, however, we are not obligated as a service provider to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity. Obligations to remove or block the use of information under general law remain unaffected. However, liability in this regard is only possible from the time of knowledge of a specific infringement. Upon becoming aware of corresponding legal violations, we will remove this content immediately.',
+      },
+      {
+        heading: 'Liability for Links',
+        content: 'Our offer contains links to external third-party websites over whose content we have no influence. Therefore, we cannot assume any liability for this external content. The respective provider or operator of the linked pages is always responsible for the content of the linked pages. The linked pages were checked for possible legal violations at the time of linking. Illegal content was not recognizable at the time of linking. Permanent content control of the linked pages is not reasonable without concrete evidence of a legal violation. Upon becoming aware of legal violations, we will remove such links immediately.',
+      },
+      {
+        heading: 'Copyright',
+        content: 'The content and works on these pages created by the site operators are subject to German copyright law. Duplication, processing, distribution, and any kind of use beyond the limits of copyright law require the written consent of the respective author or creator. Downloads and copies of this page are only permitted for private, non-commercial use.',
+      },
+      {
+        heading: 'Dispute Resolution',
+        content: 'The European Commission provides a platform for online dispute resolution (OS): https://ec.europa.eu/consumers/odr/. We are not willing or obligated to participate in dispute resolution proceedings before a consumer arbitration board.',
+      },
+    ],
+  },
+  privacy: {
+    title: 'Privacy Policy',
+    intro: 'We take the protection of your personal data very seriously.',
+    sections: [
+      {
+        heading: 'Data Controller',
+        content: 'Responsible for data processing on this website:\n\nBollmann & Roets\nEmail: info@bollman-roets.de\nPhone: 0160 48 47 9 48',
+      },
+      {
+        heading: 'Data Collection on This Website',
+        content: 'When you send us inquiries via the contact form, your details from the inquiry form, including the contact data you provide, will be stored by us for the purpose of processing the inquiry and in case of follow-up questions. We do not share this data without your consent. The processing of this data is based on Art. 6 (1) lit. b GDPR if your inquiry is related to the performance of a contract or is necessary for the implementation of pre-contractual measures. In all other cases, the processing is based on our legitimate interest in the effective processing of inquiries addressed to us (Art. 6 (1) lit. f GDPR) or on your consent (Art. 6 (1) lit. a GDPR).',
+      },
+      {
+        heading: 'Server Log Files',
+        content: 'The provider of the pages automatically collects and stores information in so-called server log files, which your browser automatically transmits to us. These are: browser type and version, operating system used, referrer URL, hostname of the accessing computer, time of the server request, and IP address. This data is not merged with other data sources. The collection of this data is based on Art. 6 (1) lit. f GDPR.',
+      },
+      {
+        heading: 'Cookies',
+        content: 'This website currently does not use cookies.',
+      },
+      {
+        heading: 'Hosting',
+        content: 'This website is hosted by IONOS. For details, please refer to the IONOS privacy policy: https://www.ionos.de/terms-gtc/datenschutzerklaerung/',
+      },
+      {
+        heading: 'Your Rights',
+        content: 'You have the right at any time to free information about your stored personal data, its origin and recipients, and the purpose of data processing, as well as a right to correction or deletion of this data. For this purpose, as well as for further questions on the subject of personal data, you can contact us at any time. You also have the right to restriction of processing, the right to data portability, and the right to lodge a complaint with the competent supervisory authority.',
+      },
+    ],
   },
   partner: {
     title: 'Partner Program',
