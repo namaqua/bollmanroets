@@ -3,6 +3,7 @@ import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import { logger } from 'hono/logger'
 import { secureHeaders } from 'hono/secure-headers'
+import { csrf } from 'hono/csrf'
 import { contact } from './routes/contact'
 
 const app = new Hono()
@@ -15,6 +16,11 @@ app.use('*', cors({
   allowMethods: ['GET', 'POST', 'OPTIONS'],
   allowHeaders: ['Content-Type'],
   maxAge: 86400,
+}))
+
+// CSRF protection for API routes
+app.use('/api/*', csrf({
+  origin: ['https://bollmann-roets.de', 'https://www.bollmann-roets.de', 'https://br.luluwaldhund.de', 'http://localhost:5177'],
 }))
 
 // Health check

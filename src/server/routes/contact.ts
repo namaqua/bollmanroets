@@ -19,7 +19,7 @@ setInterval(() => {
 }, 10 * 60 * 1000)
 
 // Web Leads API configuration
-const WEBLEADS_API_URL = 'https://dogfood.luluwaldhund.de/api/public/web-leads'
+const WEBLEADS_API_URL = process.env.WEBLEADS_API_URL || 'https://dogfood.luluwaldhund.de/api/public/web-leads'
 
 // Map frontend interest values to Web Leads API values
 const interestValueMap: Record<string, string> = {
@@ -153,7 +153,10 @@ async function submitToWebLeads(
     const result = await response.json()
 
     if (!response.ok) {
-      console.error('Web Leads API error:', { status: response.status, result })
+      console.error('Web Leads API error:', {
+        status: response.status,
+        error: typeof result === 'object' ? result.error || 'Unknown error' : 'Unknown error',
+      })
       return { success: false, error: result.error || 'Submission failed' }
     }
 
