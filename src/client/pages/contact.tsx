@@ -47,6 +47,8 @@ export function ContactPage() {
   const [searchParams] = useSearchParams()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [honeypotValue, setHoneypotValue] = useState('')
+  const [cooldownUntil, setCooldownUntil] = useState(0)
 
   // Valid interest options for URL parameter pre-selection
   const validInterests = ['discoveryDay', 'pilot', 'partnership', 'investment', 'general']
@@ -87,6 +89,9 @@ export function ContactPage() {
   const marketingConsentValue = watch('marketingConsent')
 
   const onSubmit = async (data: ContactFormData) => {
+    // F3: Prevent submission during cooldown
+    if (Date.now() < cooldownUntil) return
+
     setIsSubmitting(true)
     setSubmitStatus('idle')
 
@@ -94,10 +99,11 @@ export function ContactPage() {
       // Collect tracking data
       const trackingData = getFormTrackingData('contact')
 
-      // Combine form data with tracking data
+      // Combine form data with tracking data (F1: include honeypot)
       const payload = {
         ...data,
         ...trackingData,
+        website: honeypotValue,
       }
 
       const response = await fetch('/api/contact', {
@@ -116,6 +122,7 @@ export function ContactPage() {
       }
 
       setSubmitStatus('success')
+      setCooldownUntil(Date.now() + 60_000) // F3: 60-second cooldown
       reset()
     } catch (error) {
       console.error('Form submission error:', error)
@@ -166,6 +173,27 @@ export function ContactPage() {
           {/* Contact Form */}
           <div className="lg:col-span-2">
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              {/* F1: Honeypot - invisible to humans, bots will fill it */}
+              <div aria-hidden="true" style={{
+                position: 'absolute',
+                left: '-9999px',
+                top: '-9999px',
+                height: 0,
+                width: 0,
+                overflow: 'hidden',
+              }}>
+                <label htmlFor="website">Website</label>
+                <input
+                  type="text"
+                  id="website"
+                  name="website"
+                  autoComplete="off"
+                  tabIndex={-1}
+                  value={honeypotValue}
+                  onChange={(e) => setHoneypotValue(e.target.value)}
+                />
+              </div>
+
               <div className="grid gap-6 sm:grid-cols-2">
                 <div className="space-y-2">
                   <Label htmlFor="name">
@@ -297,7 +325,7 @@ export function ContactPage() {
                 </div>
               )}
 
-              <Button type="submit" size="lg" disabled={isSubmitting}>
+              <Button type="submit" size="lg" disabled={isSubmitting || Date.now() < cooldownUntil}>
                 {isSubmitting ? t.form.sending : t.buttons.sendMessage}
               </Button>
             </form>

@@ -2,19 +2,27 @@ import { Hono } from 'hono'
 import { z } from 'zod'
 import { zValidator } from '@hono/zod-validator'
 
-// Rate limiting store (in-memory for simplicity, use Redis in production)
+// Rate limiting stores (in-memory for simplicity, use Redis in production)
 const rateLimitStore = new Map<string, { count: number; resetAt: number }>()
+const emailRateLimitStore = new Map<string, { count: number; resetAt: number }>()
 
 const RATE_LIMIT_WINDOW = 60 * 60 * 1000 // 1 hour
 const RATE_LIMIT_MAX = 5 // 5 requests per hour
+const EMAIL_RATE_LIMIT_MAX = 3 // 3 per hour per email address
+const MAX_RATE_LIMIT_ENTRIES = 10_000
+const MIN_FORM_TIME_SECONDS = 5
+
+// Web Leads consecutive failure counter
+let consecutiveWebLeadsFailures = 0
 
 // Cleanup expired rate limit entries every 10 minutes
 setInterval(() => {
   const now = Date.now()
   for (const [ip, record] of rateLimitStore) {
-    if (record.resetAt < now) {
-      rateLimitStore.delete(ip)
-    }
+    if (record.resetAt < now) rateLimitStore.delete(ip)
+  }
+  for (const [email, record] of emailRateLimitStore) {
+    if (record.resetAt < now) emailRateLimitStore.delete(email)
   }
 }, 10 * 60 * 1000)
 
@@ -32,6 +40,9 @@ const interestValueMap: Record<string, string> = {
 
 // Contact form schema with tracking fields
 const contactSchema = z.object({
+  // Honeypot field - must be empty (bots will fill it)
+  website: z.string().max(0).optional().default(''),
+
   // Required form fields
   name: z.string().min(1, 'Name is required').max(100),
   company: z.string().min(1, 'Company is required').max(100),
@@ -168,22 +179,64 @@ async function submitToWebLeads(
   }
 }
 
-// Rate limit middleware
+// F4: Robust IP extraction
+function getClientIp(c: { req: { header: (name: string) => string | undefined } }): string {
+  const realIp = c.req.header('x-real-ip')
+  if (realIp) return realIp
+
+  const forwarded = c.req.header('x-forwarded-for')
+  if (forwarded) {
+    const first = forwarded.split(',')[0].trim()
+    if (first) return first
+  }
+
+  return 'no-ip-detected'
+}
+
+// F5: Rate limit with max store size
 function rateLimit(ip: string): { allowed: boolean; remaining: number } {
   const now = Date.now()
+  const effectiveMax = ip === 'no-ip-detected' ? 2 : RATE_LIMIT_MAX
   const record = rateLimitStore.get(ip)
 
   if (!record || record.resetAt < now) {
+    if (rateLimitStore.size >= MAX_RATE_LIMIT_ENTRIES) {
+      for (const [key, val] of rateLimitStore) {
+        if (val.resetAt < now) rateLimitStore.delete(key)
+      }
+      if (rateLimitStore.size >= MAX_RATE_LIMIT_ENTRIES) {
+        return { allowed: false, remaining: 0 }
+      }
+    }
     rateLimitStore.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW })
-    return { allowed: true, remaining: RATE_LIMIT_MAX - 1 }
+    return { allowed: true, remaining: effectiveMax - 1 }
   }
 
-  if (record.count >= RATE_LIMIT_MAX) {
+  if (record.count >= effectiveMax) {
     return { allowed: false, remaining: 0 }
   }
 
   record.count++
-  return { allowed: true, remaining: RATE_LIMIT_MAX - record.count }
+  return { allowed: true, remaining: effectiveMax - record.count }
+}
+
+// F6: Email-based rate limiting
+function rateLimitByEmail(email: string): { allowed: boolean } {
+  const normalizedEmail = email.toLowerCase().trim()
+  const now = Date.now()
+  const record = emailRateLimitStore.get(normalizedEmail)
+
+  if (!record || record.resetAt < now) {
+    emailRateLimitStore.set(normalizedEmail, { count: 1, resetAt: now + RATE_LIMIT_WINDOW })
+    return { allowed: true }
+  }
+
+  if (record.count >= EMAIL_RATE_LIMIT_MAX) {
+    return { allowed: false }
+  }
+
+  record.count++
+  return { allowed: true }
 }
 
 // Interest type labels for email
@@ -210,11 +263,9 @@ contact.post(
     }
   }),
   async (c) => {
-    // Get client IP for rate limiting
-    const ip = c.req.header('x-real-ip') || 'unknown'
-    const { allowed, remaining } = rateLimit(ip)
+    const clientIp = getClientIp(c)
+    const { allowed, remaining } = rateLimit(clientIp)
 
-    // Set rate limit headers
     c.header('X-RateLimit-Limit', String(RATE_LIMIT_MAX))
     c.header('X-RateLimit-Remaining', String(remaining))
 
@@ -229,10 +280,37 @@ contact.post(
     }
 
     const data = c.req.valid('json') as ContactFormData
-
-    // Get client IP and User-Agent for forwarding to Web Leads API
-    const clientIp = c.req.header('x-real-ip') || 'unknown'
     const userAgent = c.req.header('user-agent') || ''
+
+    // F1: Honeypot check - reject silently if filled
+    if (data.website && data.website.length > 0) {
+      console.log('Bot detected: honeypot filled', { ip: clientIp })
+      return c.json({
+        success: true,
+        message: 'Vielen Dank für Ihre Nachricht. Wir melden uns innerhalb eines Werktags.',
+      })
+    }
+
+    // F2: Time-based bot detection
+    if (data.timeOnFormPage !== undefined && data.timeOnFormPage < MIN_FORM_TIME_SECONDS) {
+      console.log('Bot detected: form submitted too fast', {
+        timeOnFormPage: data.timeOnFormPage,
+        ip: clientIp,
+      })
+      return c.json({
+        success: true,
+        message: 'Vielen Dank für Ihre Nachricht. Wir melden uns innerhalb eines Werktags.',
+      })
+    }
+
+    // F6: Email-based rate limiting
+    const { allowed: emailAllowed } = rateLimitByEmail(data.email)
+    if (!emailAllowed) {
+      return c.json({
+        success: false,
+        error: 'Too many requests for this email. Please try again later.',
+      }, 429)
+    }
 
     // Log submission metadata (no PII for DSGVO compliance)
     console.log('Contact form submission:', {
@@ -249,6 +327,16 @@ contact.post(
       id: webLeadsResult.id,
       error: webLeadsResult.error,
     })
+
+    // F7: Track consecutive Web Leads failures
+    if (!webLeadsResult.success) {
+      consecutiveWebLeadsFailures++
+      if (consecutiveWebLeadsFailures >= 5) {
+        console.error('ALERT: Web Leads API has failed 5+ consecutive times')
+      }
+    } else {
+      consecutiveWebLeadsFailures = 0
+    }
 
     return c.json({
       success: true,
